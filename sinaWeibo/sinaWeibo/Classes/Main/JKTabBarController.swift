@@ -17,9 +17,49 @@ class JKTabBarController: UITabBarController
 
         //设置字体的颜色
         tabBar.tintColor = UIColor.orangeColor()
+        addChildViewControllers()
+
+
+    }//end for viewDidLoad
+    
+    
+    //在viewWillAppear方法里面设置frame
+    override func viewWillAppear(animated: Bool) {
         
+        setupPlusButton()
+    }
+    
+    //添加中间的按钮
+    private func setupPlusButton(){
+        
+    }
+    
+    //创建懒加载按钮
+    private lazy var plusButton:UIButton = {
+        
+        let btn = UIButton()
+        //设置图片
+        btn.setImage(UIImage(named:"tabbar_compose_icon_add"), forState: UIControlState.Normal)
+        btn.setImage(UIImage(named:"tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
+        //设置背景图片
+        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button"), forState: UIControlState.Normal)
+        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        
+        //添加监听事件
+        btn.addTarget(self, action: "", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
+        
+        
+       return btn
+    }()
+    
+    //按钮点击事件是由
+    
+    //抽出一个方法来自定义子控制器
+    private func addChildViewControllers() {
         //获取文件路径
-     let path = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)
+        let path = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)
         
         //转换成二进制数据,做一个判断
         if let jsonPath = path{
@@ -31,7 +71,7 @@ class JKTabBarController: UITabBarController
                 //try :发生异常会跳到catch里面继续执行
                 //try！：发生异常程序直接崩溃
                 let dicArray = try NSJSONSerialization.JSONObjectWithData(jsonData!, options:NSJSONReadingOptions.MutableContainers)
-               // print(dicArray)
+                // print(dicArray)
                 
                 //swift中遍历数组，必须要明确数组的一个类型
                 for dic in dicArray as![[String:String]]{
@@ -46,14 +86,12 @@ class JKTabBarController: UITabBarController
                 addChildViewController("JKMessageTableViewController", title: "消息", imageName: "tabbar_message_center")
                 addChildViewController("JKDiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
                 addChildViewController("JKProfileTableViewController", title: "我", imageName: "tabbar_profile")
-
             }
-
+            
             
         }//end for if
-
-    }//end for viewDidLoad
-    
+        
+    }
     
     
     //抽出来的方法统一建立子控制器

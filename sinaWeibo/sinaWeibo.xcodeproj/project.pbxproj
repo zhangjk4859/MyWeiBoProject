@@ -561,6 +561,7 @@
 				0A1F2BC21D03F425002A03D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A1F2BC31D03F425002A03D0 /* Build configuration list for PBXNativeTarget "sinaWeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +570,7 @@
 				0A1F2BC51D03F425002A03D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A1F2BC61D03F425002A03D0 /* Build configuration list for PBXNativeTarget "sinaWeiboUITests" */ = {
 			isa = XCConfigurationList;
@@ -577,6 +579,7 @@
 				0A1F2BC81D03F425002A03D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
