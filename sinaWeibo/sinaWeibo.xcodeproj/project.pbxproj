@@ -18,6 +18,8 @@
 		0A1F2BD81D0400EC002A03D0 /* JKMessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F2BD71D0400EC002A03D0 /* JKMessageTableViewController.swift */; };
 		0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F2BD91D0400FB002A03D0 /* JKProfileTableViewController.swift */; };
 		0A1F2BDD1D04175F002A03D0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */; };
+		0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C511D0EB83900256D36 /* JKNullViewController.swift */; };
+		0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		0A1F2BD71D0400EC002A03D0 /* JKMessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKMessageTableViewController.swift; sourceTree = "<group>"; };
 		0A1F2BD91D0400FB002A03D0 /* JKProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKProfileTableViewController.swift; sourceTree = "<group>"; };
 		0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
+		0A306C511D0EB83900256D36 /* JKNullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNullViewController.swift; sourceTree = "<group>"; };
+		0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKBaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,7 @@
 			children = (
 				0A1F2BDB1D04175F002A03D0 /* Resource */,
 				0A1F2BD11D03FFFA002A03D0 /* JKTabBarController.swift */,
+				0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */,
+				0A306C511D0EB83900256D36 /* JKNullViewController.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -346,7 +352,9 @@
 				0A1F2BD21D03FFFA002A03D0 /* JKTabBarController.swift in Sources */,
 				0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */,
 				0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */,
+				0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,
+				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
 				0A1F2BD81D0400EC002A03D0 /* JKMessageTableViewController.swift in Sources */,
 				0A1F2BD41D040053002A03D0 /* JKHomeTableViewController.swift in Sources */,
 				0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */,

@@ -10,6 +10,11 @@
      "imageName": "tabbar_message_center"
  },
  {
+ "vcName": "JKNullViewController",
+ "title": "",
+ "imageName": ""
+ },
+ {
      "vcName": "JKDiscoverTableViewController",
      "title": "广场",
      "imageName": "tabbar_discover"

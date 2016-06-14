@@ -8,9 +8,19 @@
 
 import UIKit
 
+//扩展必须在外面
+private extension Selector {
+    static let buttonTapped =
+        #selector(JKTabBarController.plusBtnClick)
+}
+
+
 class JKTabBarController: UITabBarController
 {
 
+
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -25,19 +35,17 @@ class JKTabBarController: UITabBarController
     
     //在viewWillAppear方法里面设置frame
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        setupPlusButton()
+        setupPlusBtn()
     }
     
-    //添加中间的按钮
-    private func setupPlusButton(){
-        
-    }
+
     
     //创建懒加载按钮
     private lazy var plusButton:UIButton = {
         
-        let btn = UIButton()
+        let btn = UIButton(type:UIButtonType.Custom)
         //设置图片
         btn.setImage(UIImage(named:"tabbar_compose_icon_add"), forState: UIControlState.Normal)
         btn.setImage(UIImage(named:"tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
@@ -46,15 +54,37 @@ class JKTabBarController: UITabBarController
         btn.setBackgroundImage(UIImage(named:"tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
         
         //添加监听事件
-        btn.addTarget(self, action: "", forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action:.buttonTapped, forControlEvents: UIControlEvents.TouchUpInside)
         
-        
+        //JKTabBarController.plusBtnClick
         
         
        return btn
     }()
     
-    //按钮点击事件是由
+    
+    
+    
+    //按钮点击事件,不能为私有方法
+   func plusBtnClick(){
+    
+    print(#function )
+    }
+    
+    //定义一个方法，添加中间的按钮
+    private func setupPlusBtn(){
+    
+    tabBar.addSubview(plusButton)
+        let width = tabBar.bounds.width / CGFloat(viewControllers!.count)
+        
+        let rect = CGRect(x:0, y:0, width:width, height:tabBar.bounds.height)
+        
+        plusButton.frame = CGRectOffset(rect, 2*width, 0)
+
+
+    
+    }
+    
     
     //抽出一个方法来自定义子控制器
     private func addChildViewControllers() {
@@ -84,6 +114,9 @@ class JKTabBarController: UITabBarController
                 //如果失败，本地添加四个子视图
                 addChildViewController("JKHomeTableViewController", title: "首页", imageName: "tabbar_home")
                 addChildViewController("JKMessageTableViewController", title: "消息", imageName: "tabbar_message_center")
+                //插入占位控制器
+                addChildViewController("JKNullViewController", title: "", imageName: "")
+                
                 addChildViewController("JKDiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
                 addChildViewController("JKProfileTableViewController", title: "我", imageName: "tabbar_profile")
             }

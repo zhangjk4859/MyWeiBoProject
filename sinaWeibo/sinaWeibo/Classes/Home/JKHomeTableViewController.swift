@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JKHomeTableViewController: UITableViewController {
+class JKHomeTableViewController: JKBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

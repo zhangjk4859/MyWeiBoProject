@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JKProfileTableViewController: UITableViewController {
+class JKProfileTableViewController: JKBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
