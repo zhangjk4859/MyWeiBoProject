@@ -20,18 +20,18 @@ class JKVisitView: UIView {
         addSubview(loginBtn)
         addSubview(registerBtn)
         
-        //设置背景
-        iconView.jk_AlignInner(type: JK_AlignType.center, referView: self, size: nil)
-        //设置小房子
-        homeIcon.jk_AlignInner(type: JK_AlignType.center, referView: self, size: nil)
-        //设置文本
-        homeIcon.jk_AlignVertical(type: JK_AlignType.bottomCenter, referView: iconView, size: nil)
-        
-        let widthCons = NSLayoutConstraint(item: messageLabel,attribute: NSLayoutAttribute.width,relatedBy: NSLayoutRelation.equal,toItem:nil,attribute:NSLayoutAttribute.notAnAttribute,multiplier:1.0,constant:224)
-        addConstraint(widthCons)
-        
-        //设置注册按钮
-         registerBtn.jk_AlignVertical(type: JK_AlignType.bottomLeft, referView: messageLabel, size: CGSize(width: 100, height: 30),offset: CGPoint(x: 0, y: 20))
+//        //设置背景
+//        iconView.jk_AlignInner(JK_AlignType.center, referView: self, size: nil)
+//        //设置小房子
+//        homeIcon.jk_AlignInner(JK_AlignType.center, referView: self, size: nil)
+//        //设置文本
+//        homeIcon.jk_AlignVertical(JK_AlignType.bottomCenter, referView: iconView, size: nil)
+//        
+//        let widthCons = NSLayoutConstraint(item: messageLabel,attribute: NSLayoutAttribute.width,relatedBy: NSLayoutRelation.equal,toItem:nil,attribute:NSLayoutAttribute.notAnAttribute,multiplier:1.0,constant:224)
+//        addConstraint(widthCons)
+//        
+//        //设置注册按钮
+//         registerBtn.jk_AlignVertical(JK_AlignType.bottomLeft, referView: messageLabel, size: CGSize(width: 100, height: 30),offset: CGPoint(x: 0, y: 20))
         
         
         
@@ -60,7 +60,7 @@ class JKVisitView: UIView {
     private lazy var messageLabel:UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = UIColor.darkGray()
+        label.textColor = UIColor.darkGrayColor()
         label.text = "测试测试测试测试测试测试测试测试测试"
         return label
     }()
@@ -68,9 +68,9 @@ class JKVisitView: UIView {
     //登录按钮
     private lazy var loginBtn:UIButton = {
        let btn = UIButton()
-        btn.setTitleColor(UIColor.darkGray(), for: UIControlState())
-        btn.setTitle("登录", for: UIControlState())
-        btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), for: UIControlState())
+        btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState())
+        btn.setTitle("登录", forState: UIControlState())
+        btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), forState: UIControlState())
         
         return btn
     }()
@@ -78,9 +78,9 @@ class JKVisitView: UIView {
     //注册按钮
     private lazy var registerBtn:UIButton = {
         let btn = UIButton()
-        btn.setTitleColor(UIColor.orange(), for: UIControlState())
-        btn.setTitle("注册", for: UIControlState())
-        btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), for: UIControlState())
+        btn.setTitleColor(UIColor.orangeColor(), forState: UIControlState())
+        btn.setTitle("注册", forState: UIControlState())
+        btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), forState: UIControlState())
         return btn
     }()
     

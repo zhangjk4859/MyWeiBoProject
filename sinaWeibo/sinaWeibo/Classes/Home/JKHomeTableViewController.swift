@@ -27,8 +27,7 @@ class JKHomeTableViewController: JKBaseViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 0
     }
 
