@@ -19,7 +19,7 @@ import UIKit
  - CenterRight:  右中
  - Center: 中中
  */
-public enum jk_AlignType {
+public enum JK_AlignType {
     case TopLeft
     case TopRight
     case TopCenter
@@ -131,7 +131,7 @@ extension UIView {
      
      :returns: 约束数组
      */
-    public func jk_AlignInner(type type: jk_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint]  {
+    public func jk_AlignInner(type type: JK_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint]  {
         
         return jk_AlignLayout(referView, attributes: type.layoutAttributes(true, isVertical: true), size: size, offset: offset)
     }
@@ -146,7 +146,7 @@ extension UIView {
      
      :returns: 约束数组
      */
-    public func jk_AlignVertical(type type: jk_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
+    public func jk_AlignVertical(type type: JK_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
         
         return jk_AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: true), size: size, offset: offset)
     }
@@ -161,7 +161,7 @@ extension UIView {
      
      :returns: 约束数组
      */
-    public func jk_AlignHorizontal(type type: jk_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
+    public func jk_AlignHorizontal(type type: JK_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
         
         return jk_AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: false), size: size, offset: offset)
     }
@@ -181,7 +181,7 @@ extension UIView {
         var cons = [NSLayoutConstraint]()
         
         let firstView = views[0]
-        firstView.jk_AlignInner(type: jk_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        firstView.jk_AlignInner(type: JK_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -insets.bottom))
         
         // 添加后续视图的约束
@@ -189,7 +189,7 @@ extension UIView {
         for i in 1..<views.count {
             let subView = views[i]
             cons += subView.jk_sizeConstraints(firstView)
-            subView.jk_AlignHorizontal(type: jk_AlignType.TopRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
+            subView.jk_AlignHorizontal(type: JK_AlignType.TopRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
             preView = subView
         }
         
@@ -215,7 +215,7 @@ extension UIView {
         var cons = [NSLayoutConstraint]()
         
         let firstView = views[0]
-        firstView.jk_AlignInner(type: jk_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        firstView.jk_AlignInner(type: JK_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -insets.right))
         
         // 添加后续视图的约束
@@ -223,7 +223,7 @@ extension UIView {
         for i in 1..<views.count {
             let subView = views[i]
             cons += subView.jk_sizeConstraints(firstView)
-            subView.jk_AlignVertical(type: jk_AlignType.BottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
+            subView.jk_AlignVertical(type: JK_AlignType.BottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
             preView = subView
         }
         

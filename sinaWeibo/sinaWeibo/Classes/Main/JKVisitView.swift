@@ -20,20 +20,24 @@ class JKVisitView: UIView {
         addSubview(loginBtn)
         addSubview(registerBtn)
         
-//        //设置背景
-//        iconView.jk_AlignInner(JK_AlignType.center, referView: self, size: nil)
-//        //设置小房子
-//        homeIcon.jk_AlignInner(JK_AlignType.center, referView: self, size: nil)
-//        //设置文本
-//        homeIcon.jk_AlignVertical(JK_AlignType.bottomCenter, referView: iconView, size: nil)
-//        
-//        let widthCons = NSLayoutConstraint(item: messageLabel,attribute: NSLayoutAttribute.width,relatedBy: NSLayoutRelation.equal,toItem:nil,attribute:NSLayoutAttribute.notAnAttribute,multiplier:1.0,constant:224)
-//        addConstraint(widthCons)
-//        
-//        //设置注册按钮
-//         registerBtn.jk_AlignVertical(JK_AlignType.bottomLeft, referView: messageLabel, size: CGSize(width: 100, height: 30),offset: CGPoint(x: 0, y: 20))
+        //设置背景
+        iconView.jk_AlignInner(type: JK_AlignType.Center, referView: self, size: nil)
+        //设置小房子
+        homeIcon.jk_AlignInner(type: JK_AlignType.Center, referView: self, size: nil)
+        //设置文本
+        messageLabel.jk_AlignVertical(type: JK_AlignType.BottomCenter, referView: iconView, size: nil)
+
+        let widthCons = NSLayoutConstraint(item: messageLabel,attribute: NSLayoutAttribute.Width,relatedBy: NSLayoutRelation.Equal,toItem:nil,attribute:NSLayoutAttribute.NotAnAttribute,multiplier:1.0,constant:224)
+        addConstraint(widthCons)
         
+        //设置注册按钮
+         registerBtn.jk_AlignVertical(type: JK_AlignType.BottomLeft, referView: messageLabel, size: CGSize(width: 100, height: 30),offset: CGPoint(x: 0, y: 20))
+        //设置登录按钮
+        loginBtn.jk_AlignVertical(type:JK_AlignType.BottomRight, referView: messageLabel, size: CGSize(width: 100, height: 30),offset: CGPoint(x: 0, y: 20))
         
+        //设置蒙板
+       // mask
+        maskBGView.jk_Fill(self)
         
         
     }
