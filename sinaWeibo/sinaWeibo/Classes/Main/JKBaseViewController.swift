@@ -10,15 +10,29 @@ import UIKit
 
 class JKBaseViewController: UITableViewController {
 
+    //定义一个变量保存用户登录
+    var userLogin = false
+    
+    override func loadView() {
+        userLogin ? super.loadView() : setupVisitView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .redColor()
+        //view.backgroundColor = .redColor()
         
     }
 
+    
+   private func setupVisitView() {
+    
+    let customView = JKVisitView()
+    view = customView
+    
+    }
 
-
+/*
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -39,7 +53,7 @@ class JKBaseViewController: UITableViewController {
 
         return cell
     }
-    
+*/
 
     /*
     // Override to support conditional editing of the table view.

@@ -26,7 +26,7 @@ class JKTabBarController: UITabBarController
         super.viewDidLoad()
 
         //设置字体的颜色
-        tabBar.tintColor = UIColor.orangeColor()
+        tabBar.tintColor = UIColor.orange()
         addChildViewControllers()
 
 
@@ -34,7 +34,7 @@ class JKTabBarController: UITabBarController
     
     
     //在viewWillAppear方法里面设置frame
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setupPlusBtn()
@@ -45,16 +45,16 @@ class JKTabBarController: UITabBarController
     //创建懒加载按钮
     private lazy var plusButton:UIButton = {
         
-        let btn = UIButton(type:UIButtonType.Custom)
+        let btn = UIButton(type:UIButtonType.custom)
         //设置图片
-        btn.setImage(UIImage(named:"tabbar_compose_icon_add"), forState: UIControlState.Normal)
-        btn.setImage(UIImage(named:"tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
+        btn.setImage(UIImage(named:"tabbar_compose_icon_add"), for: UIControlState())
+        btn.setImage(UIImage(named:"tabbar_compose_icon_add_highlighted"), for: UIControlState.highlighted)
         //设置背景图片
-        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button"), forState: UIControlState.Normal)
-        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button"), for: UIControlState())
+        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button_highlighted"), for: UIControlState.highlighted)
         
         //添加监听事件
-        btn.addTarget(self, action:.buttonTapped, forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action:.buttonTapped, for: UIControlEvents.touchUpInside)
         
         //JKTabBarController.plusBtnClick
         
@@ -79,7 +79,7 @@ class JKTabBarController: UITabBarController
         
         let rect = CGRect(x:0, y:0, width:width, height:tabBar.bounds.height)
         
-        plusButton.frame = CGRectOffset(rect, 2*width, 0)
+        plusButton.frame = rect.offsetBy(dx: 2*width, dy: 0)
 
 
     
@@ -89,18 +89,18 @@ class JKTabBarController: UITabBarController
     //抽出一个方法来自定义子控制器
     private func addChildViewControllers() {
         //获取文件路径
-        let path = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)
+        let path = Bundle.main().pathForResource("MainVCSettings.json", ofType: nil)
         
         //转换成二进制数据,做一个判断
         if let jsonPath = path{
-            let jsonData = NSData(contentsOfFile: jsonPath)
+            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: jsonPath))
             
             
             do{
                 //有可能发生异常的代码放到这里
                 //try :发生异常会跳到catch里面继续执行
                 //try！：发生异常程序直接崩溃
-                let dicArray = try NSJSONSerialization.JSONObjectWithData(jsonData!, options:NSJSONReadingOptions.MutableContainers)
+                let dicArray = try JSONSerialization.jsonObject(with: jsonData!, options:JSONSerialization.ReadingOptions.mutableContainers)
                 // print(dicArray)
                 
                 //swift中遍历数组，必须要明确数组的一个类型
@@ -128,10 +128,10 @@ class JKTabBarController: UITabBarController
     
     
     //抽出来的方法统一建立子控制器
-    private  func addChildViewController(childControllerName: String,title:String,imageName:String)
+    private  func addChildViewController(_ childControllerName: String,title:String,imageName:String)
     {
         //动态获取命名空间  两个叹号代表字典里一定有值，一定是字符串
-        let nameSpace = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as! String
+        let nameSpace = Bundle.main().infoDictionary!["CFBundleExecutable"] as! String
         //把字符串转换成一个类,必须是命名空间加一个点才能创建,创建出来的类，有可能有，有可能没有
         let cls:AnyClass? = NSClassFromString(nameSpace + "." + childControllerName)
         
@@ -143,8 +143,8 @@ class JKTabBarController: UITabBarController
         
         
         vc.title = title
-        vc.tabBarItem.image = UIImage(named: imageName)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        vc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        vc.tabBarItem.image = UIImage(named: imageName)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        vc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         
         //包装一个导航控制器
         let nav = UINavigationController()

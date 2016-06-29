@@ -20,6 +20,8 @@
 		0A1F2BDD1D04175F002A03D0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */; };
 		0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C511D0EB83900256D36 /* JKNullViewController.swift */; };
 		0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */; };
+		0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B21D2286B8009C4E72 /* JKVisitView.swift */; };
+		0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		0A306C511D0EB83900256D36 /* JKNullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNullViewController.swift; sourceTree = "<group>"; };
 		0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKBaseViewController.swift; sourceTree = "<group>"; };
+		0AE555B21D2286B8009C4E72 /* JKVisitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKVisitView.swift; sourceTree = "<group>"; };
+		0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 				0A1F2BDB1D04175F002A03D0 /* Resource */,
 				0A1F2BD11D03FFFA002A03D0 /* JKTabBarController.swift */,
 				0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */,
+				0AE555B21D2286B8009C4E72 /* JKVisitView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 		0A1F2BD01D03FF1D002A03D0 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -284,16 +290,20 @@
 				TargetAttributes = {
 					0A1F2B971D03F425002A03D0 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 5DPK6RWRLR;
+						DevelopmentTeam = SD22MTKH6T;
+						DevelopmentTeamName = "da zheng";
+						LastSwiftMigration = 0800;
 					};
 					0A1F2BAB1D03F425002A03D0 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5DPK6RWRLR;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0A1F2B971D03F425002A03D0;
 					};
 					0A1F2BB61D03F425002A03D0 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5DPK6RWRLR;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0A1F2B971D03F425002A03D0;
 					};
 				};
@@ -350,12 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A1F2BD21D03FFFA002A03D0 /* JKTabBarController.swift in Sources */,
+				0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */,
 				0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */,
 				0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */,
 				0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,
 				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
 				0A1F2BD81D0400EC002A03D0 /* JKMessageTableViewController.swift in Sources */,
+				0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */,
 				0A1F2BD41D040053002A03D0 /* JKHomeTableViewController.swift in Sources */,
 				0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */,
 			);
@@ -488,6 +500,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cago.com.sinaWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -501,6 +515,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cago.com.sinaWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -512,6 +528,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cago.com.sinaWeiboTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sinaWeibo.app/sinaWeibo";
 			};
 			name = Debug;
@@ -524,6 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cago.com.sinaWeiboTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sinaWeibo.app/sinaWeibo";
 			};
 			name = Release;
@@ -535,6 +553,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cago.com.sinaWeiboUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = sinaWeibo;
 			};
 			name = Debug;
@@ -546,6 +565,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cago.com.sinaWeiboUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = sinaWeibo;
 			};
 			name = Release;
