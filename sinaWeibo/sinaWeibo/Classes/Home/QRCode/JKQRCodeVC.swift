@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class JKQRCodeVC: UIViewController,UITabBarDelegate {
 
@@ -18,6 +19,7 @@ class JKQRCodeVC: UIViewController,UITabBarDelegate {
     //冲击波视图顶部约束
     @IBOutlet weak var scanLineCons: NSLayoutConstraint!
     
+    @IBOutlet weak var messageLabel: UILabel!
     
     //关闭按钮点击事件
     @IBAction func closeBtnClick(sender: UIBarButtonItem) {
@@ -36,7 +38,45 @@ class JKQRCodeVC: UIViewController,UITabBarDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+       //开始动画
         startAnimation()
+        
+        //开始扫描
+        startScan()
+    }
+    
+    
+    //开始扫描
+    func startScan(){
+        //判断是否能够将输入添加到会话中
+        if !session.canAddInput(deviceInput) {
+            return
+        }
+        
+        //判断是否能够将输出添加到会话中
+        if !session.canAddOutput(output) {
+            return
+        }
+        
+        //将输入和输出都添加到会话中
+        session.addInput(deviceInput)
+        print(output.availableMetadataObjectTypes)
+        session.addOutput(output)
+        print(output.availableMetadataObjectTypes)
+        
+        //设置输出能够解析的数据类型
+        //一定要在输出对象添加到会员之后设置，否则会报错
+        output.metadataObjectTypes = output.availableMetadataObjectTypes
+        print(output.availableMetadataObjectTypes)
+        //设置输出对象的代理，只要解析成功就会通知代理
+        output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        
+        //添加预览图层
+        view.layer.insertSublayer(previewLayer, atIndex:0)
+        
+        //告诉session开始扫描
+        session.startRunning()
+        
     }
     
     func startAnimation(){
@@ -69,4 +109,42 @@ class JKQRCodeVC: UIViewController,UITabBarDelegate {
         //重新开始动画
         startAnimation()
     }
+    
+    //MARK: - 懒加载 视频会话
+    private lazy var session : AVCaptureSession = AVCaptureSession()
+    
+    //拿到输入设备
+    private lazy var deviceInput : AVCaptureDeviceInput? = {
+        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        do{
+            let input = try AVCaptureDeviceInput(device: device)
+            return input
+        }catch{
+            print(error)
+            return nil
+        }
+    }()
+    
+    //拿到输出对象
+    private lazy var output : AVCaptureMetadataOutput = AVCaptureMetadataOutput()
+    
+    //创建预览图层
+    private lazy var previewLayer:AVCaptureVideoPreviewLayer = {
+        let layer = AVCaptureVideoPreviewLayer(session: self.session)
+        layer.frame = UIScreen.mainScreen().bounds
+        return layer
+    }()
+ 
 }
+
+extension JKQRCodeVC:AVCaptureMetadataOutputObjectsDelegate{
+    //只要解析到数据就会调用
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        //注意要使用stingValue
+        print(metadataObjects.last?.stringValue)
+        messageLabel.text = metadataObjects.last?.stringValue
+        messageLabel.sizeToFit()
+    }
+}
+
+
