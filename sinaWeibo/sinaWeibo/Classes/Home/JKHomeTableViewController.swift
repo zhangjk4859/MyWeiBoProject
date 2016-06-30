@@ -24,11 +24,21 @@ class JKHomeTableViewController: JKBaseViewController {
     }
 
     
+    //自定义导航栏
     private func setupNav(){
         navigationItem.leftBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_friendattention", target: self, action: #selector(JKHomeTableViewController.leftItemClick))
         navigationItem.rightBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_pop", target: self, action: #selector(JKHomeTableViewController.rightItemClick))
+        //顶部按钮
+        let titleBtn = JKTitleButton()
+        titleBtn.setTitle("张俊凯", forState: UIControlState.Normal)
+        titleBtn.addTarget(self, action:#selector(JKHomeTableViewController.titleBtnClick(_:)) , forControlEvents: UIControlEvents.TouchUpInside)
+        navigationItem.titleView = titleBtn
     }
     
+    //顶部标题按钮点击事件
+    func titleBtnClick(btn:JKTitleButton){
+        btn.selected = !btn.selected
+    }
     
     func leftItemClick(){
         print(#function)

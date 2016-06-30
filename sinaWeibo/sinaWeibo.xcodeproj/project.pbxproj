@@ -21,6 +21,7 @@
 		0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C511D0EB83900256D36 /* JKNullViewController.swift */; };
 		0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */; };
 		0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */; };
+		0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */; };
 		0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B21D2286B8009C4E72 /* JKVisitView.swift */; };
 		0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		0A306C511D0EB83900256D36 /* JKNullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNullViewController.swift; sourceTree = "<group>"; };
 		0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKBaseViewController.swift; sourceTree = "<group>"; };
 		0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Category.swift"; path = "sinaWeibo/Classes/Tools/UIBarButtonItem+Category.swift"; sourceTree = SOURCE_ROOT; };
+		0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JKTitleButton.swift; path = sinaWeibo/Classes/Tools/JKTitleButton.swift; sourceTree = SOURCE_ROOT; };
 		0AE555B21D2286B8009C4E72 /* JKVisitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKVisitView.swift; sourceTree = "<group>"; };
 		0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */,
+				0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */,
 				0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */,
 				0A1F2BD41D040053002A03D0 /* JKHomeTableViewController.swift in Sources */,
+				0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */,
 				0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
