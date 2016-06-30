@@ -21,14 +21,20 @@ class JKQRCodeVC: UIViewController,UITabBarDelegate {
     
     @IBOutlet weak var messageLabel: UILabel!
     
+    //底部tabbar
+    @IBOutlet weak var customTabBar: UITabBar!
+    
     //关闭按钮点击事件
     @IBAction func closeBtnClick(sender: UIBarButtonItem) {
     
-    dismissViewControllerAnimated(true, completion: nil)
+       dismissViewControllerAnimated(true, completion: nil)
     }
 
+   
 
-    @IBOutlet weak var customTabBar: UITabBar!
+    
+    
+    
     override func viewDidLoad() {
          super.viewDidLoad()
         customTabBar.selectedItem = customTabBar.items![0]
@@ -73,6 +79,9 @@ class JKQRCodeVC: UIViewController,UITabBarDelegate {
         
         //添加预览图层
         view.layer.insertSublayer(previewLayer, atIndex:0)
+        
+        //将绘制图层添加到预览图层上
+        previewLayer.addSublayer(drawLayer)
         
         //告诉session开始扫描
         session.startRunning()
@@ -134,17 +143,97 @@ class JKQRCodeVC: UIViewController,UITabBarDelegate {
         layer.frame = UIScreen.mainScreen().bounds
         return layer
     }()
- 
+    
+    //创建用于绘制边线的图层
+    private lazy var drawLayer : CALayer = {
+        let layer = CALayer()
+        
+        layer.frame = UIScreen.mainScreen().bounds
+        return layer
+    }()
 }
 
 extension JKQRCodeVC:AVCaptureMetadataOutputObjectsDelegate{
     //只要解析到数据就会调用
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        
+        //清空图册
+        clearConers()
+        
+        //获取到扫描的数据
         //注意要使用stingValue
         print(metadataObjects.last?.stringValue)
         messageLabel.text = metadataObjects.last?.stringValue
         messageLabel.sizeToFit()
+        
+        //获取扫描到的二维码位置
+        for object in metadataObjects {
+            
+            //判断当前获取到的数据是否是机器可识别的类型
+            if object is AVMetadataMachineReadableCodeObject {
+                //将坐标转换成界面可识别的坐标
+                let codeObject = previewLayer.transformedMetadataObjectForMetadataObject(object as! AVMetadataObject) as! AVMetadataMachineReadableCodeObject
+                
+                //绘制图形
+                drawConers(codeObject)
+                
+            }
+        }
+        
     }
+    
+    //绘制图形
+    private func drawConers(codeObject:AVMetadataMachineReadableCodeObject){
+        if codeObject.corners.isEmpty {
+            return
+        }
+        
+        //创建一个图层
+        let layer = CAShapeLayer()
+        layer.lineWidth = 4
+        layer.strokeColor = UIColor.redColor().CGColor
+        layer.fillColor = UIColor.clearColor().CGColor
+        
+        //创建路径
+        let path = UIBezierPath()
+        var point = CGPointZero
+        var index :Int = 0
+        
+        //从corner数组中取出第0个元素，将这个字典的xy赋值给point
+        CGPointMakeWithDictionaryRepresentation((codeObject.corners[index++] as! CFDictionaryRef), &point)
+        path.moveToPoint(point)
+        
+        //移动到其他的点
+        while index < codeObject.corners.count {
+            CGPointMakeWithDictionaryRepresentation((codeObject.corners[index++] as! CFDictionaryRef), &point)
+            path.addLineToPoint(point)
+        }
+        
+        //关闭路径
+        path.closePath()
+        //绘制路径
+        layer.path = path.CGPath
+        
+        //将绘制好的图层添加到drawLayer上
+        drawLayer.addSublayer(layer)
+        
+    }
+    
+    
+    //用来清空边线
+    private func clearConers(){
+        //判断drawLayer上是否有其他图层
+        if  drawLayer.sublayers == nil || drawLayer.sublayers?.count == 0{
+            return
+        }
+        
+        //移除所有子图层
+        for sublayer in drawLayer.sublayers! {
+            sublayer.removeFromSuperlayer()
+        }
+    }
+    
+    
 }
 
 
