@@ -38,6 +38,23 @@ class JKHomeTableViewController: JKBaseViewController {
     //顶部标题按钮点击事件
     func titleBtnClick(btn:JKTitleButton){
         btn.selected = !btn.selected
+        
+        //来添加点击事件
+        let sb = UIStoryboard(name:"JKPopoverViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+//        let vc = UIViewController()
+//        vc.view.backgroundColor = UIColor.redColor()
+        
+        
+        //自定义转场，不会移除以前的控制器的view
+        vc?.transitioningDelegate = self
+        
+        // 设置转场的样式
+        vc?.modalPresentationStyle = UIModalPresentationStyle.Custom
+        
+        presentViewController(vc!, animated: true, completion: nil)
+        
+        
     }
     
     func leftItemClick(){
@@ -47,6 +64,9 @@ class JKHomeTableViewController: JKBaseViewController {
     func rightItemClick(){
         print(#function)
     }
+    
+
+    
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -60,3 +80,16 @@ class JKHomeTableViewController: JKBaseViewController {
     }
 
 }
+
+
+
+//转场动画的代理
+extension JKHomeTableViewController:UIViewControllerTransitioningDelegate{
+    //告诉系统谁来负责转场动画
+    //iOS8以后专门负责转场动画
+    @available(iOS 8.0, *)
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        return JKPopoverPC(presentedViewController: presented, presentingViewController: presenting)
+    }
+}
+

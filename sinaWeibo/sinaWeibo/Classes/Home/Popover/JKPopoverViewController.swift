@@ -6,7 +6,7 @@
 //  Copyright © 2016 张俊凯. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class JKPopoverViewController: UIViewController {
 
