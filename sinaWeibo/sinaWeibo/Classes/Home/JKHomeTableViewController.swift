@@ -18,9 +18,25 @@ class JKHomeTableViewController: JKBaseViewController {
         if !userLogin
         {
             visitView?.setupVisitInfo(true, imageName: "visitordiscover_feed_image_house", message: "关注一些人，回这里看看有什么惊喜")
+            return
         }
         
         setupNav()
+        
+        //注册通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(change), name: animatorWillShow, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(change), name: animatorWillDismiss, object: nil)
+    }
+    
+    //从自身移除通知
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func change(){
+        let titleBtn = navigationItem.titleView as! JKTitleButton
+        titleBtn.selected = !titleBtn.selected
+        
     }
 
     
@@ -47,7 +63,7 @@ class JKHomeTableViewController: JKBaseViewController {
         
         
         //自定义转场，不会移除以前的控制器的view
-        vc?.transitioningDelegate = self
+        vc?.transitioningDelegate = popoverAnimator
         
         // 设置转场的样式
         vc?.modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -82,80 +98,17 @@ class JKHomeTableViewController: JKBaseViewController {
     //默认没有展示
     var isPresent : Bool = false
     
-}
-
-
-
-//转场动画的代理
-extension JKHomeTableViewController:UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning{
-    //告诉系统谁来负责转场动画
-    //iOS8以后专门负责转场动画
-    @available(iOS 8.0, *)
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return JKPopoverPC(presentedViewController: presented, presentingViewController: presenting)
-    }
     
-    //动画弹出来以后会调用
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresent = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresent = false
-        return self
-    }
-    
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.5
-    }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        if isPresent {
-            //如果是展开
-            if #available(iOS 8.0, *) {
-                let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
-                toView.transform = CGAffineTransformMakeScale(1.0, 0.0)
-                
-                //将视图添加到容器上
-                transitionContext.containerView()?.addSubview(toView)
-                
-                //设置锚点
-                toView.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
-                
-                //执行动画
-                UIView.animateWithDuration(0.5, animations: {
-                    //清空transform
-                    toView.transform = CGAffineTransformIdentity
-                }){(_) -> Void in
-                    
-                    transitionContext.completeTransition(true)
-                    
-                }
-
-            } else {
-                // Fallback on earlier versions
-            }
-            
-        }else{//关闭的时候
-            
-            if #available(iOS 8.0, *) {
-                let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
-                
-                UIView.animateWithDuration(0.2, animations: {
-                    fromView?.transform = CGAffineTransformMakeScale(1.0, 0.000001)
-                    }, completion: { (_) -> Void in
-                        //如果不写，可能回到导致一些未知错误
-                        transitionContext.completeTransition(true)
-                })
-            } else {
-                // Fallback on earlier versions
-            }
-            
-            
-            
-        }
-    }
+    //定义一个属性来自定义转场对象，否则会报错
+    private lazy var popoverAnimator : JKPopoverAnimator = {
+        let pa = JKPopoverAnimator()
+        pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 350)
+        return pa
+    }()
     
 }
+
+
+
+
 

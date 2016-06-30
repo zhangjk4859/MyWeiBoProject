@@ -25,6 +25,7 @@
 		0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */; };
 		0ACD2BDD1D24C3A300707EC8 /* JKPopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD2BDC1D24C3A300707EC8 /* JKPopoverViewController.storyboard */; };
 		0ACD2BDF1D24C51900707EC8 /* JKPopoverPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BDE1D24C51900707EC8 /* JKPopoverPC.swift */; };
+		0ACD2BE11D24EC3F00707EC8 /* JKPopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE01D24EC3F00707EC8 /* JKPopoverAnimator.swift */; };
 		0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B21D2286B8009C4E72 /* JKVisitView.swift */; };
 		0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPopoverViewController.swift; sourceTree = "<group>"; };
 		0ACD2BDC1D24C3A300707EC8 /* JKPopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JKPopoverViewController.storyboard; sourceTree = "<group>"; };
 		0ACD2BDE1D24C51900707EC8 /* JKPopoverPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPopoverPC.swift; sourceTree = "<group>"; };
+		0ACD2BE01D24EC3F00707EC8 /* JKPopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPopoverAnimator.swift; sourceTree = "<group>"; };
 		0AE555B21D2286B8009C4E72 /* JKVisitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKVisitView.swift; sourceTree = "<group>"; };
 		0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 				0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */,
 				0ACD2BDC1D24C3A300707EC8 /* JKPopoverViewController.storyboard */,
 				0ACD2BDE1D24C51900707EC8 /* JKPopoverPC.swift */,
+				0ACD2BE01D24EC3F00707EC8 /* JKPopoverAnimator.swift */,
 			);
 			path = Popover;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */,
 				0A1F2BD41D040053002A03D0 /* JKHomeTableViewController.swift in Sources */,
 				0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */,
+				0ACD2BE11D24EC3F00707EC8 /* JKPopoverAnimator.swift in Sources */,
 				0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */,
 				0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */,
 			);

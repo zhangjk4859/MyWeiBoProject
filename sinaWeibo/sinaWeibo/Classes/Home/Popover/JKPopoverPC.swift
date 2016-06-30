@@ -10,6 +10,9 @@ import UIKit
 
 @available(iOS 8.0, *)
 class JKPopoverPC: UIPresentationController {
+    
+    /// 定义属性保存菜单的大小
+    var presentFrame = CGRectZero
 
     //正在呈现和已经呈现的吗？
     override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
@@ -24,7 +27,13 @@ class JKPopoverPC: UIPresentationController {
         //修改子视图的大小
         //containerView:容器视图
         //presentedView：被展现的视图
-        presentedView()?.frame = CGRect(x: 100, y: 56, width: 200, height: 200)
+        
+        if presentFrame == CGRectZero {
+            presentedView()?.frame = CGRect(x: 100, y: 56, width: 200, height: 200)
+        }else{
+            presentedView()?.frame = presentFrame
+        }
+        
         
         //在容器视图下面插入一个蒙板
         containerView?.insertSubview(bottomView, atIndex: 0)
