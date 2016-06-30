@@ -79,6 +79,12 @@ class JKHomeTableViewController: JKBaseViewController {
     
     func rightItemClick(){
         print(#function)
+        //先从storyboard里面取出来控制器
+        let sb = UIStoryboard(name: "JKQRCodeVC", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+        
+        //弹出二维码控制器
+        presentViewController(vc!, animated: true, completion: nil)
     }
     
 
