@@ -78,18 +78,84 @@ class JKHomeTableViewController: JKBaseViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-
+    
+    //默认没有展示
+    var isPresent : Bool = false
+    
 }
 
 
 
 //转场动画的代理
-extension JKHomeTableViewController:UIViewControllerTransitioningDelegate{
+extension JKHomeTableViewController:UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning{
     //告诉系统谁来负责转场动画
     //iOS8以后专门负责转场动画
     @available(iOS 8.0, *)
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
         return JKPopoverPC(presentedViewController: presented, presentingViewController: presenting)
     }
+    
+    //动画弹出来以后会调用
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresent = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresent = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+        return 0.5
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        if isPresent {
+            //如果是展开
+            if #available(iOS 8.0, *) {
+                let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
+                toView.transform = CGAffineTransformMakeScale(1.0, 0.0)
+                
+                //将视图添加到容器上
+                transitionContext.containerView()?.addSubview(toView)
+                
+                //设置锚点
+                toView.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
+                
+                //执行动画
+                UIView.animateWithDuration(0.5, animations: {
+                    //清空transform
+                    toView.transform = CGAffineTransformIdentity
+                }){(_) -> Void in
+                    
+                    transitionContext.completeTransition(true)
+                    
+                }
+
+            } else {
+                // Fallback on earlier versions
+            }
+            
+        }else{//关闭的时候
+            
+            if #available(iOS 8.0, *) {
+                let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
+                
+                UIView.animateWithDuration(0.2, animations: {
+                    fromView?.transform = CGAffineTransformMakeScale(1.0, 0.000001)
+                    }, completion: { (_) -> Void in
+                        //如果不写，可能回到导致一些未知错误
+                        transitionContext.completeTransition(true)
+                })
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            
+            
+        }
+    }
+    
 }
 
