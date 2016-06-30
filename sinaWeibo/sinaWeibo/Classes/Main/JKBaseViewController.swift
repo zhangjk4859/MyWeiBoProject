@@ -11,7 +11,8 @@ import UIKit
 class JKBaseViewController: UITableViewController,VisitViewDelegate {
 
     //定义一个变量保存用户登录
-    var userLogin = false
+    //var userLogin = false
+    var userLogin = true
     
     //定义属性保存未登陆界面
     var visitView :JKVisitView?

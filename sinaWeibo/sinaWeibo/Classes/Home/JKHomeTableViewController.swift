@@ -19,9 +19,24 @@ class JKHomeTableViewController: JKBaseViewController {
         {
             visitView?.setupVisitInfo(true, imageName: "visitordiscover_feed_image_house", message: "关注一些人，回这里看看有什么惊喜")
         }
+        
+        setupNav()
     }
 
     
+    private func setupNav(){
+        navigationItem.leftBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_friendattention", target: self, action: #selector(JKHomeTableViewController.leftItemClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_pop", target: self, action: #selector(JKHomeTableViewController.rightItemClick))
+    }
+    
+    
+    func leftItemClick(){
+        print(#function)
+    }
+    
+    func rightItemClick(){
+        print(#function)
+    }
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
