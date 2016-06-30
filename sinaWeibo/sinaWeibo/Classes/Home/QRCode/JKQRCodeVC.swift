@@ -30,7 +30,13 @@ class JKQRCodeVC: UIViewController,UITabBarDelegate {
        dismissViewControllerAnimated(true, completion: nil)
     }
 
-   
+   //我的名片点击推出控制器
+    @IBAction func myCardClick(sender: UIButton) {
+        let cardVC = JKQRCodeCardVC()
+        navigationController?.pushViewController(cardVC, animated: true)
+        
+        
+    }
 
     
     

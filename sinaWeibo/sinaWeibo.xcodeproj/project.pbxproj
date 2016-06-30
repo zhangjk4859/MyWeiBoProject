@@ -28,6 +28,7 @@
 		0ACD2BE11D24EC3F00707EC8 /* JKPopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE01D24EC3F00707EC8 /* JKPopoverAnimator.swift */; };
 		0ACD2BE51D24F9D900707EC8 /* JKQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE31D24F9D900707EC8 /* JKQRCodeVC.swift */; };
 		0ACD2BE81D24FA0800707EC8 /* JKQRCodeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE71D24FA0800707EC8 /* JKQRCodeVC.storyboard */; };
+		0ACD2BEA1D252F4900707EC8 /* JKQRCodeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE91D252F4900707EC8 /* JKQRCodeCardVC.swift */; };
 		0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B21D2286B8009C4E72 /* JKVisitView.swift */; };
 		0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		0ACD2BE01D24EC3F00707EC8 /* JKPopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPopoverAnimator.swift; sourceTree = "<group>"; };
 		0ACD2BE31D24F9D900707EC8 /* JKQRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKQRCodeVC.swift; sourceTree = "<group>"; };
 		0ACD2BE71D24FA0800707EC8 /* JKQRCodeVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JKQRCodeVC.storyboard; sourceTree = "<group>"; };
+		0ACD2BE91D252F4900707EC8 /* JKQRCodeCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKQRCodeCardVC.swift; sourceTree = "<group>"; };
 		0AE555B21D2286B8009C4E72 /* JKVisitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKVisitView.swift; sourceTree = "<group>"; };
 		0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +259,7 @@
 			children = (
 				0ACD2BE31D24F9D900707EC8 /* JKQRCodeVC.swift */,
 				0ACD2BE71D24FA0800707EC8 /* JKQRCodeVC.storyboard */,
+				0ACD2BE91D252F4900707EC8 /* JKQRCodeCardVC.swift */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */,
 				0ACD2BDF1D24C51900707EC8 /* JKPopoverPC.swift in Sources */,
 				0ACD2BE51D24F9D900707EC8 /* JKQRCodeVC.swift in Sources */,
+				0ACD2BEA1D252F4900707EC8 /* JKQRCodeCardVC.swift in Sources */,
 				0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */,
 				0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,

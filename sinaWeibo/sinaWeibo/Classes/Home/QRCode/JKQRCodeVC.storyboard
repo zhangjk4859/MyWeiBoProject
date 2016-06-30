@@ -49,24 +49,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trb-jn-Op4" userLabel="容器">
                                 <rect key="frame" x="150" y="150" width="300" height="300"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="SAS-ay-03u" userLabel="边框">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_barcode" translatesAutoresizingMaskIntoConstraints="NO" id="jfI-RZ-WXD" userLabel="冲击波">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_barcode" translatesAutoresizingMaskIntoConstraints="NO" id="jfI-RZ-WXD" userLabel="冲击波">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="SAS-ay-03u" userLabel="边框">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="jfI-RZ-WXD" firstAttribute="height" secondItem="Trb-jn-Op4" secondAttribute="height" id="5JT-B3-XaX"/>
-                                    <constraint firstItem="SAS-ay-03u" firstAttribute="leading" secondItem="Trb-jn-Op4" secondAttribute="leading" id="Ds6-jR-VPf"/>
                                     <constraint firstItem="jfI-RZ-WXD" firstAttribute="width" secondItem="Trb-jn-Op4" secondAttribute="width" id="E3e-rQ-qwH"/>
                                     <constraint firstAttribute="height" constant="300" id="Uxg-RS-MOW"/>
                                     <constraint firstAttribute="width" constant="300" id="fLW-QG-FFg"/>
-                                    <constraint firstAttribute="trailing" secondItem="SAS-ay-03u" secondAttribute="trailing" id="mCp-OU-CXV"/>
-                                    <constraint firstAttribute="bottom" secondItem="SAS-ay-03u" secondAttribute="bottom" id="o4f-G8-YfV"/>
+                                    <constraint firstItem="SAS-ay-03u" firstAttribute="leading" secondItem="Trb-jn-Op4" secondAttribute="leading" id="gZz-Eb-VLn"/>
+                                    <constraint firstItem="SAS-ay-03u" firstAttribute="top" secondItem="Trb-jn-Op4" secondAttribute="top" id="l6l-O2-hhH"/>
+                                    <constraint firstAttribute="trailing" secondItem="SAS-ay-03u" secondAttribute="trailing" id="myb-1J-4QQ"/>
                                     <constraint firstItem="jfI-RZ-WXD" firstAttribute="top" secondItem="Trb-jn-Op4" secondAttribute="top" id="phz-hI-VXy"/>
-                                    <constraint firstItem="SAS-ay-03u" firstAttribute="top" secondItem="Trb-jn-Op4" secondAttribute="top" id="tgh-bv-6r5"/>
+                                    <constraint firstAttribute="bottom" secondItem="SAS-ay-03u" secondAttribute="bottom" id="qPE-mN-JSP"/>
                                     <constraint firstItem="jfI-RZ-WXD" firstAttribute="centerX" secondItem="Trb-jn-Op4" secondAttribute="centerX" id="zyt-hL-UXx"/>
                                 </constraints>
                             </view>
@@ -77,15 +77,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Eb-Zx-Lae">
+                                <rect key="frame" x="277" y="454" width="60" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="我的名片" backgroundImage="qrcode_button_background">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="myCardClick:" destination="0YP-lc-urf" eventType="touchUpInside" id="E1t-wl-ZMe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="7QJ-FF-3m0" secondAttribute="bottom" id="9GY-0S-4Mr"/>
+                            <constraint firstItem="6Eb-Zx-Lae" firstAttribute="top" secondItem="Trb-jn-Op4" secondAttribute="bottom" constant="30" id="ATf-PB-Njj"/>
                             <constraint firstItem="h3o-59-2jK" firstAttribute="top" secondItem="eLB-Y1-3Ce" secondAttribute="bottom" constant="40" id="LpT-5t-TLL"/>
                             <constraint firstItem="7QJ-FF-3m0" firstAttribute="leading" secondItem="yjp-Wn-e7X" secondAttribute="leading" id="TY7-nX-MV5"/>
                             <constraint firstItem="Trb-jn-Op4" firstAttribute="centerY" secondItem="yjp-Wn-e7X" secondAttribute="centerY" id="W5P-5n-zhC"/>
                             <constraint firstAttribute="trailing" secondItem="7QJ-FF-3m0" secondAttribute="trailing" id="ZOS-x0-7G4"/>
                             <constraint firstItem="h3o-59-2jK" firstAttribute="centerX" secondItem="yjp-Wn-e7X" secondAttribute="centerX" id="jc3-c4-JuV"/>
+                            <constraint firstItem="6Eb-Zx-Lae" firstAttribute="centerX" secondItem="yjp-Wn-e7X" secondAttribute="centerX" id="ptj-Ci-Zs1"/>
                             <constraint firstItem="Trb-jn-Op4" firstAttribute="centerX" secondItem="yjp-Wn-e7X" secondAttribute="centerX" id="xWj-9g-kcx"/>
                         </constraints>
                     </view>
@@ -108,11 +120,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5K-gE-a1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="602"/>
+            <point key="canvasLocation" x="676" y="608"/>
         </scene>
     </scenes>
     <resources>
         <image name="qrcode_border" width="51" height="51"/>
+        <image name="qrcode_button_background" width="34" height="32"/>
         <image name="qrcode_scanline_barcode" width="248" height="124"/>
         <image name="qrcode_tabbar_icon_barcode" width="40" height="40"/>
         <image name="qrcode_tabbar_icon_qrcode" width="40" height="40"/>
