@@ -8,8 +8,63 @@
 
 import UIKit
 
+protocol VisitViewDelegate:NSObjectProtocol {
+    //登录回调
+    func loginBtnWillClick()
+    //注册回调
+    func registerBtnWillClick()
+}
+
 class JKVisitView: UIView {
 
+    //定义一个属性保存代理，弱引用
+    weak var delegate:VisitViewDelegate?
+    
+    
+    //设置未登录界面
+    func setupVisitInfo(isHome:Bool,imageName:String,message:String){
+        //如果不是首页就隐藏转盘
+        iconView.hidden = !isHome
+        
+        //修改中间的图标
+        homeIcon.image = UIImage(named: imageName)
+        //修改文本
+        messageLabel.text = message
+        
+        //判断是否执行动画
+        if isHome {
+            startAnimation()
+        }
+    }
+    
+    //播放转盘动画
+    private func startAnimation(){
+        //创建动画
+        let ani = CABasicAnimation(keyPath: "transform.rotation")
+        //设置动画属性
+        ani.toValue = 2 * M_PI
+        ani.duration = 20
+        ani.repeatCount = MAXFLOAT
+        
+        //动画执行完毕就移除
+         ani.removedOnCompletion = false
+        //将动画添加到图层
+        iconView.layer.addAnimation(ani, forKey: nil)
+        
+    }
+    
+    //登录按钮点击事件
+    func loginBtnClick(){
+        delegate?.loginBtnWillClick()
+    }
+    
+    //注册按钮点击事件
+    func registerBtnClick(){
+        delegate?.registerBtnWillClick()
+    }
+    
+    
+    
     //初始化里面布局子控件
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,7 +130,7 @@ class JKVisitView: UIView {
         btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState())
         btn.setTitle("登录", forState: UIControlState())
         btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), forState: UIControlState())
-        
+        btn.addTarget(self, action: #selector(JKVisitView.loginBtnClick), forControlEvents:UIControlEvents.TouchUpInside)
         return btn
     }()
     
@@ -85,6 +140,7 @@ class JKVisitView: UIView {
         btn.setTitleColor(UIColor.orangeColor(), forState: UIControlState())
         btn.setTitle("注册", forState: UIControlState())
         btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), forState: UIControlState())
+        btn.addTarget(self, action: #selector(JKVisitView.registerBtnClick), forControlEvents:UIControlEvents.TouchUpInside)
         return btn
     }()
     

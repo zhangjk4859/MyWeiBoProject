@@ -13,11 +13,10 @@ class JKDiscoverTableViewController: JKBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //如果没有登录
+        if !userLogin {
+            visitView?.setupVisitInfo(false, imageName: "visitordiscover_image_message", message: "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过")
+        }
     }
 
     override func didReceiveMemoryWarning() {

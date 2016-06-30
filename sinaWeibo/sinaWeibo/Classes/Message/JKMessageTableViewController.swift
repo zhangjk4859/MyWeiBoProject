@@ -12,12 +12,11 @@ class JKMessageTableViewController: JKBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // 1.如果没有登录, 就设置未登录界面的信息
+        if !userLogin
+        {
+            visitView?.setupVisitInfo(false, imageName: "visitordiscover_image_message", message: "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知")
+        }
     }
 
     override func didReceiveMemoryWarning() {

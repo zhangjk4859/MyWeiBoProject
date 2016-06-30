@@ -8,11 +8,16 @@
 
 import UIKit
 
-class JKBaseViewController: UITableViewController {
+class JKBaseViewController: UITableViewController,VisitViewDelegate {
 
     //定义一个变量保存用户登录
     var userLogin = false
     
+    //定义属性保存未登陆界面
+    var visitView :JKVisitView?
+    
+    
+    //加载视图的时候判断加载哪一个视图
     override func loadView() {
         userLogin ? super.loadView() : setupVisitView()
     }
@@ -27,77 +32,34 @@ class JKBaseViewController: UITableViewController {
     
    private func setupVisitView() {
     
+    //创建自定义视图并且赋值给属性
     let customView = JKVisitView()
+    customView.delegate = self
     view = customView
+    visitView = customView
     
-    }
-
-/*
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 100
-    }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    navigationController?.navigationBar.tintColor = UIColor.orangeColor()
+    //设置导航栏未登陆按钮
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title:"注册", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(JKBaseViewController.registerBtnWillClick))
+    
 
-       cell.textLabel?.text = "测试"
+    //设置导航栏未登陆按钮
+    navigationItem.rightBarButtonItem   = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(JKBaseViewController.loginBtnWillClick))
+//
+}
 
-        return cell
+
+    //MARK: - visitViewDelagate
+    //按钮点击的方法在这里实现
+    //登陆按钮
+    func loginBtnWillClick() {
+        print(#function)
     }
-*/
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    //注册按钮
+    func registerBtnWillClick() {
+        print(#function)
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
