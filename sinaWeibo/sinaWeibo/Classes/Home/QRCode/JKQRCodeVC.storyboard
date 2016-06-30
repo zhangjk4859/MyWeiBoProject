@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="49" id="1Ek-My-Btl"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="二维码" image="qrcode_tabbar_icon_qrcode" id="3yJ-GG-tZM" userLabel="二维码"/>
+                                    <tabBarItem tag="1" title="二维码" image="qrcode_tabbar_icon_qrcode" id="3yJ-GG-tZM" userLabel="二维码"/>
                                     <tabBarItem title="条形码" image="qrcode_tabbar_icon_barcode" id="Ols-cp-1Cd" userLabel="条形码"/>
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,10 +49,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trb-jn-Op4" userLabel="容器">
                                 <rect key="frame" x="150" y="150" width="300" height="300"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_barcode" translatesAutoresizingMaskIntoConstraints="NO" id="jfI-RZ-WXD" userLabel="冲击波">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="SAS-ay-03u" userLabel="边框">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="SAS-ay-03u" userLabel="边框">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_barcode" translatesAutoresizingMaskIntoConstraints="NO" id="jfI-RZ-WXD" userLabel="冲击波">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     </imageView>
                                 </subviews>
@@ -90,7 +90,10 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="containerHeightCons" destination="Uxg-RS-MOW" id="bdk-fZ-URp"/>
                         <outlet property="customTabBar" destination="7QJ-FF-3m0" id="qSw-Tk-1W5"/>
+                        <outlet property="scanLineCons" destination="phz-hI-VXy" id="065-pC-J6J"/>
+                        <outlet property="scanLineView" destination="jfI-RZ-WXD" id="Mx0-KW-9IA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5K-gE-a1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
