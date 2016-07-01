@@ -54,6 +54,7 @@ class JKOAuthVC: UIViewController {
     
     private func test1(){
         //make a commit
+        //make a test by console
     }
     
 }
