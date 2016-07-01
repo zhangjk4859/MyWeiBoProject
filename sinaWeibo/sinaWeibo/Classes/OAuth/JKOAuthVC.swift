@@ -48,14 +48,6 @@ class JKOAuthVC: UIViewController {
         return webView
     }()
     
-    private func test(){
-        //make a commit
-    }
-    
-    private func test1(){
-        //make a commit
-        //make a test by console
-    }
     
 }
 
