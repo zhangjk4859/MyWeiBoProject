@@ -36,7 +36,7 @@ class JKQRCodeCardVC: UIViewController {
         filter?.setDefaults()
         
         //设置需要生成二维码的数据
-        filter?.setValue("张俊凯王钰瑾".dataUsingEncoding(NSUTF8StringEncoding), forKey: "inputMessage")
+        filter?.setValue("王钰瑾张俊凯".dataUsingEncoding(NSUTF8StringEncoding), forKey: "inputMessage")
         
         //从滤镜中取出生成好的图片
         let ciImage = filter?.outputImage

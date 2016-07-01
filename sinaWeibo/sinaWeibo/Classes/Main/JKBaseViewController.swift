@@ -11,8 +11,8 @@ import UIKit
 class JKBaseViewController: UITableViewController,VisitViewDelegate {
 
     //定义一个变量保存用户登录
-    //var userLogin = false
-    var userLogin = true
+    var userLogin = false
+    //var userLogin = true
     
     //定义属性保存未登陆界面
     var visitView :JKVisitView?
@@ -56,6 +56,11 @@ class JKBaseViewController: UITableViewController,VisitViewDelegate {
     //登陆按钮
     func loginBtnWillClick() {
         print(#function)
+
+        let loginVC = JKOAuthVC()
+        let nav = UINavigationController(rootViewController: loginVC)
+        presentViewController(nav, animated: true, completion: nil)
+
     }
     //注册按钮
     func registerBtnWillClick() {

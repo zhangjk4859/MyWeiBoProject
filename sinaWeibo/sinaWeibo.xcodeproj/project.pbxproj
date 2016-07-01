@@ -20,6 +20,7 @@
 		0A1F2BDD1D04175F002A03D0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */; };
 		0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C511D0EB83900256D36 /* JKNullViewController.swift */; };
 		0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */; };
+		0A8B18941D26096A00AD873E /* JKOAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B18931D26096A00AD873E /* JKOAuthVC.swift */; };
 		0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */; };
 		0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */; };
 		0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */; };
@@ -70,6 +71,7 @@
 		0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		0A306C511D0EB83900256D36 /* JKNullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNullViewController.swift; sourceTree = "<group>"; };
 		0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKBaseViewController.swift; sourceTree = "<group>"; };
+		0A8B18931D26096A00AD873E /* JKOAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKOAuthVC.swift; sourceTree = "<group>"; };
 		0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Category.swift"; path = "sinaWeibo/Classes/Tools/UIBarButtonItem+Category.swift"; sourceTree = SOURCE_ROOT; };
 		0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JKTitleButton.swift; path = sinaWeibo/Classes/Tools/JKTitleButton.swift; sourceTree = SOURCE_ROOT; };
 		0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPopoverViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		0A1F2BC91D03FF1D002A03D0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0A8B18921D26094E00AD873E /* OAuth */,
 				0A1F2BCD1D03FF1D002A03D0 /* Main */,
 				0A1F2BCC1D03FF1D002A03D0 /* Home */,
 				0A1F2BCB1D03FF1D002A03D0 /* Discover */,
@@ -241,6 +244,14 @@
 				0A306C511D0EB83900256D36 /* JKNullViewController.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		0A8B18921D26094E00AD873E /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				0A8B18931D26096A00AD873E /* JKOAuthVC.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		0ACD2BD91D24C33300707EC8 /* Popover */ = {
@@ -411,6 +422,7 @@
 				0ACD2BDF1D24C51900707EC8 /* JKPopoverPC.swift in Sources */,
 				0ACD2BE51D24F9D900707EC8 /* JKQRCodeVC.swift in Sources */,
 				0ACD2BEA1D252F4900707EC8 /* JKQRCodeCardVC.swift in Sources */,
+				0A8B18941D26096A00AD873E /* JKOAuthVC.swift in Sources */,
 				0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */,
 				0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,

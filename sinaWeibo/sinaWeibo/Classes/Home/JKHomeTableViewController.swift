@@ -46,7 +46,7 @@ class JKHomeTableViewController: JKBaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_pop", target: self, action: #selector(JKHomeTableViewController.rightItemClick))
         //顶部按钮
         let titleBtn = JKTitleButton()
-        titleBtn.setTitle("张俊凯", forState: UIControlState.Normal)
+        titleBtn.setTitle("首页", forState: UIControlState.Normal)
         titleBtn.addTarget(self, action:#selector(JKHomeTableViewController.titleBtnClick(_:)) , forControlEvents: UIControlEvents.TouchUpInside)
         navigationItem.titleView = titleBtn
     }
@@ -72,13 +72,25 @@ class JKHomeTableViewController: JKBaseViewController {
         
         
     }
-    
+    //注册按钮
     func leftItemClick(){
         print(#function)
     }
-    
+    //登录按钮
     func rightItemClick(){
         print(#function)
+        //先从storyboard里面取出来控制器
+        let sb = UIStoryboard(name: "JKQRCodeVC", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+        //弹出二维码控制器
+        presentViewController(vc!, animated: true, completion: nil)
+        
+    }
+    
+
+
+    //用来保存弹出二维码界面的代码
+    func test(){
         //先从storyboard里面取出来控制器
         let sb = UIStoryboard(name: "JKQRCodeVC", bundle: nil)
         let vc = sb.instantiateInitialViewController()
@@ -86,8 +98,6 @@ class JKHomeTableViewController: JKBaseViewController {
         //弹出二维码控制器
         presentViewController(vc!, animated: true, completion: nil)
     }
-    
-
     
     // MARK: - Table view data source
     
