@@ -14,6 +14,7 @@ class JKBaseViewController: UITableViewController,VisitViewDelegate {
     var userLogin = false
     //var userLogin = true
      //var userLogin = true
+    //source tree commits
     
     //定义属性保存未登陆界面
     var visitView :JKVisitView?
