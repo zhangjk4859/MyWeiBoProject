@@ -52,6 +52,10 @@ class JKOAuthVC: UIViewController {
         //make a commit
     }
     
+    private func test1(){
+        //make a commit
+    }
+    
 }
 
 //实现webview的delegate
