@@ -15,7 +15,7 @@ class JKOAuthVC: UIViewController {
     let appSecret = "14f44971d84942a6dea5c4effaf05a83"
     let redirectURL = "http://www.juziit.net/"
     
-    
+    //make a test
     override func loadView() {
         view = webView
     }
