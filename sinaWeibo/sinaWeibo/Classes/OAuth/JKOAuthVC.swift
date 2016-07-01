@@ -42,6 +42,43 @@ class JKOAuthVC: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     //懒加载
-    private lazy var webView : UIWebView = UIWebView()
+    private lazy var webView : UIWebView = {
+       let webView = UIWebView()
+        webView.delegate = self
+        return webView
+    }()
+    
+    
+    
+}
+
+//实现webview的delegate
+extension JKOAuthVC :UIWebViewDelegate{
+    //返回true正常加载，返回false不加载
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        let urlStr = request.URL!.absoluteString
+        if !urlStr.hasPrefix(redirectURL) {
+            //继续加载
+            return true
+        }
+        
+        //判断是否授权成功
+        let codeStr = "code="
+        if request.URL!.query!.hasPrefix(codeStr) {
+            //授权成功
+            print("授权成功")
+            let code = request.URL!.query?.substringFromIndex(codeStr.endIndex)
+            print(code)
+        }else{
+            //取消授权
+            print("取消授权")
+            selfClose()
+        }
+        
+        return false
+        
+    }
     
 }
