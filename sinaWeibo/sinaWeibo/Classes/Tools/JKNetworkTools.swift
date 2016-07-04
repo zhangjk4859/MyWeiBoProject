@@ -16,9 +16,15 @@ class JKNetworkTools: AFHTTPSessionManager {
     static let tools :JKNetworkTools = {
         
         let url = NSURL(string: "https://api.weibo.com/")
-        let tools = JKNetworkTools(
-        
-        
+        let t = JKNetworkTools(baseURL: url)
+        //设置AFN能够接收的数据类型
+        t.responseSerializer.acceptableContentTypes = NSSet(objects:"application/json", "text/json", "text/javascript", "text/plain") as! Set<String>
+        return t
     }()
+    
+    //获取单例的方法 (类方法)
+   class func shareNetworkTools() -> JKNetworkTools{
+        return tools
+    }
 
 }

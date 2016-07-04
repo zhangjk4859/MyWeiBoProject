@@ -41,7 +41,7 @@ class JKOAuthVC: UIViewController {
     func selfClose(){
         dismissViewControllerAnimated(true, completion: nil)
     }
-    //懒加载
+    //懒加载网页视图
     private lazy var webView : UIWebView = {
        let webView = UIWebView()
         webView.delegate = self
@@ -71,6 +71,9 @@ extension JKOAuthVC :UIWebViewDelegate{
             print("授权成功")
             let code = request.URL!.query?.substringFromIndex(codeStr.endIndex)
             print(code)
+            
+            //利用已经授权的requestToken 换取ACCESS token
+            loadAccessToken(code!)
         }else{
             //取消授权
             print("取消授权")
@@ -81,4 +84,26 @@ extension JKOAuthVC :UIWebViewDelegate{
         
     }
     
+    private func loadAccessToken(code:String){
+        //定义路径
+        let path = "oauth2/access_token"
+        //封装参数
+        let params = ["client_id":appKey, "client_secret":appSecret, "grant_type":"authorization_code", "code":code, "redirect_uri":redirectURL]
+        //发送post请求
+        JKNetworkTools.shareNetworkTools().POST(path, parameters: params, success: { (_, JSON) in
+            print(JSON)
+            }) { (_, error) in
+                print(error)
+        }
+        
+        
+    }
+    
+    
 }
+
+//"access_token" = "2.00xPlbPBhaMMDD606d263eb1EqeCJC";
+//"expires_in" = 157679999;
+//"remind_in" = 157679999;
+//uid = 1146777665;
+
