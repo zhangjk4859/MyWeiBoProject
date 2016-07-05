@@ -15,7 +15,7 @@ import UIKit
 //uid = 1146777665;
 
 //
-class JKUserAccount: NSObject {
+class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
     
     //通行许可证
     var access_token : String?
@@ -41,6 +41,33 @@ class JKUserAccount: NSObject {
         let dic = self.dictionaryWithValuesForKeys(properties)
         
         return "\(dic)"
+        
+    }
+    
+    //保存授权模型到本地文件
+    func saveAccount(){
+        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!
+        let filePath = (path as NSString).stringByAppendingPathComponent("account.plist")
+        print("filePath\(filePath)")
+        NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
+    }
+    
+    //MARK: - NSCoding
+    //将对象写入文件中
+    func encodeWithCoder(aCoder: NSCoder) {
+        
+        aCoder.encodeObject(access_token,forKey: "access_token")
+        aCoder.encodeObject(expires_in,forKey: "expires_in")
+        aCoder.encodeObject(uid,forKey: "uid")
+        
+    }
+    
+    //从文件中读取对象
+    required init?(coder aDecoder:NSCoder){
+        
+        access_token = aDecoder.decodeObjectForKey("access_token") as? String
+        expires_in = aDecoder.decodeObjectForKey("expires_in") as? NSNumber
+        uid = aDecoder.decodeObjectForKey("uid") as? String
         
     }
     

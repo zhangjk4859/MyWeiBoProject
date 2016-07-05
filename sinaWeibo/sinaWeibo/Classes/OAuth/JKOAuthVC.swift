@@ -97,6 +97,9 @@ extension JKOAuthVC :UIWebViewDelegate{
             
             print(account)
             
+            //归档模型
+            account.saveAccount()
+            
         }) { (_, error) in
                 print(error)
         }
