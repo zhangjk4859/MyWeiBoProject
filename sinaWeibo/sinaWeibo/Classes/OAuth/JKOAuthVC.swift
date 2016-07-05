@@ -92,10 +92,14 @@ extension JKOAuthVC :UIWebViewDelegate{
         //发送post请求
         JKNetworkTools.shareNetworkTools().POST(path, parameters: params, success: { (_, JSON) in
             print(JSON)
-            }) { (_, error) in
+            
+            let account = JKUserAccount(dict: JSON  as! [String : AnyObject])
+            
+            print(account)
+            
+        }) { (_, error) in
                 print(error)
         }
-        
         
     }
     
