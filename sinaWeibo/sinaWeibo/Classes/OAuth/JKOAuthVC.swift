@@ -98,8 +98,18 @@ extension JKOAuthVC :UIWebViewDelegate{
             
             print(account)
             
+            //获取用户信息
+            account.loadUserInfo { (account, error) -> () in
+                if account != nil
+                {
+                    account!.saveAccount()
+                }
+                
+                SVProgressHUD.showInfoWithStatus("网络不给力", maskType: SVProgressHUDMaskType.Black)
+            }
+            
             //归档模型
-            account.saveAccount()
+            //account.saveAccount()
             
         }) { (_, error) in
                 print(error)

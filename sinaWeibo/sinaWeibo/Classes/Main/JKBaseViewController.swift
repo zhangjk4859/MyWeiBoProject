@@ -67,6 +67,9 @@ class JKBaseViewController: UITableViewController,VisitViewDelegate {
     //注册按钮
     func registerBtnWillClick() {
         print(#function)
+        let userInfo = JKUserAccount()
+        userInfo.loadUserInfo()
+        
     }
 
 

@@ -33,6 +33,11 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
     //唯一ID
     var uid : String?
     
+    // 用户头像地址（大图），180×180像素
+    var avatar_large: String?
+    // 用户昵称
+    var screen_name: String?
+    
     override init() {
         
     }
@@ -52,13 +57,55 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
     }
     
     override var description: String{
-        //定义属性数组
-        let properties = ["access_token","expires_in","uid"]
-        //根据属性数组，转换为字典,把Value取出来
-        let dic = self.dictionaryWithValuesForKeys(properties)
-        
-        return "\(dic)"
+        // 1.定义属性数组
+        let properties = ["access_token", "expires_in", "uid", "expires_Date", "avatar_large", "screen_name"]
+        // 2.根据属性数组, 将属性转换为字典
+        let dict =  self.dictionaryWithValuesForKeys(properties)
+        // 3.将字典转换为字符串
+        return "\(dict)"
     }
+    
+    //获取用户信息
+    func loadUserInfo(finished: (account: JKUserAccount?, error:NSError?)->())
+    {
+        
+        assert(access_token != nil, "没有授权")
+        
+        let path = "2/users/show.json"
+        let params = ["access_token":access_token!, "uid":uid!]
+        
+        JKNetworkTools.shareNetworkTools().GET(path, parameters: params, success: { (_, JSON) -> Void in
+            print(JSON)
+            // 1.判断字典是否有值
+            if let dict = JSON as? [String: AnyObject]
+            {
+                self.screen_name = dict["screen_name"] as? String
+                self.avatar_large = dict["avatar_large"] as? String
+                // 保存用户信息
+                //                self.saveAccount()
+                finished(account: self, error: nil)
+                return
+            }
+            
+            finished(account: nil, error: nil)
+            
+        }) { (_, error) -> Void in
+            print(error)
+            
+            finished(account: nil, error: error)
+        }
+
+        
+    }
+    
+//    override var description: String{
+//        //定义属性数组
+//        let properties = ["access_token","expires_in","uid"]
+//        //根据属性数组，转换为字典,把Value取出来
+//        let dic = self.dictionaryWithValuesForKeys(properties)
+//        
+//        return "\(dic)"
+//    }
     
     /**
      返回用户是否登录
@@ -107,6 +154,8 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
         aCoder.encodeObject(access_token,forKey: "access_token")
         aCoder.encodeObject(expires_in,forKey: "expires_in")
         aCoder.encodeObject(uid,forKey: "uid")
+        aCoder.encodeObject(screen_name, forKey: "screen_name")
+        aCoder.encodeObject(avatar_large, forKey: "avatar_large")
         
     }
     
@@ -116,6 +165,8 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
         access_token = aDecoder.decodeObjectForKey("access_token") as? String
         expires_in = aDecoder.decodeObjectForKey("expires_in") as? NSNumber
         uid = aDecoder.decodeObjectForKey("uid") as? String
+        screen_name = aDecoder.decodeObjectForKey("screen_name")  as? String
+        avatar_large = aDecoder.decodeObjectForKey("avatar_large")  as? String
         
     }
     
