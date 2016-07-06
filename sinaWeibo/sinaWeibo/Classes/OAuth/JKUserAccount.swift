@@ -41,24 +41,37 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
         let dic = self.dictionaryWithValuesForKeys(properties)
         
         return "\(dic)"
-        
     }
     
-    //保存授权模型到本地文件
-    func saveAccount(){
-        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!
-        let filePath = (path as NSString).stringByAppendingPathComponent("account.plist")
-        print("filePath\(filePath)")
-        NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
+    /**
+     返回用户是否登录
+     */
+    class func userLogin() -> Bool
+    {
+        return JKUserAccount.loadAccount() != nil
     }
+    
+    
+    //保存授权模型到本地文件
+    func saveAccount()
+    {
+        NSKeyedArchiver.archiveRootObject(self, toFile: "account.plist".cacheDir())
+    }
+    
+    //
+    static var account: JKUserAccount?
     
     //从本地读取二进制数据，转换成模型对象
     class func loadAccount() -> JKUserAccount? {
-        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!
-        let filePath = (path as NSString).stringByAppendingPathComponent("account.plist")
-        print("filePath \(filePath)")
         
-        let account =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? JKUserAccount
+        // 1.判断是否已经加载过
+        if account != nil
+        {
+            return account
+        }
+        // 2.加载授权模型
+        
+        account =  NSKeyedUnarchiver.unarchiveObjectWithFile("account.plist".cacheDir()) as? JKUserAccount
         return account
     }
     

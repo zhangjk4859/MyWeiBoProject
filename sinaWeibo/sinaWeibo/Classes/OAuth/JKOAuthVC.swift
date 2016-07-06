@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class JKOAuthVC: UIViewController {
 
@@ -104,6 +105,16 @@ extension JKOAuthVC :UIWebViewDelegate{
                 print(error)
         }
         
+    }
+    
+    //增加加载和加载完毕的指示器
+    func webViewDidStartLoad(webView: UIWebView)
+    {
+        SVProgressHUD.showWithStatus("加载中，请稍后")
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
     
     
