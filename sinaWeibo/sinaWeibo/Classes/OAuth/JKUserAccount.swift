@@ -52,6 +52,16 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
         NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
     }
     
+    //从本地读取二进制数据，转换成模型对象
+    class func loadAccount() -> JKUserAccount? {
+        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!
+        let filePath = (path as NSString).stringByAppendingPathComponent("account.plist")
+        print("filePath \(filePath)")
+        
+        let account =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? JKUserAccount
+        return account
+    }
+    
     //MARK: - NSCoding
     //将对象写入文件中
     func encodeWithCoder(aCoder: NSCoder) {
