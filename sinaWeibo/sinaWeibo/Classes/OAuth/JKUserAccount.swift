@@ -20,7 +20,16 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
     //通行许可证
     var access_token : String?
     //有效时间
-    var expires_in : NSNumber?
+    var expires_in: NSNumber?{
+        didSet{
+            // 根据过期的秒数, 生成真正地过期时间
+            expires_Date = NSDate(timeIntervalSinceNow: expires_in!.doubleValue)
+            print(expires_Date)
+        }
+    }
+    
+    /// 保存用户过期时间
+    var expires_Date: NSDate?
     //唯一ID
     var uid : String?
     
@@ -29,9 +38,17 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
     }
     
     init(dict:[String : AnyObject ]) {
-        access_token = dict["access_token"] as? String
-        expires_in = dict["expires_in"] as? NSNumber
-        uid = dict["uid"] as? String
+        
+//        access_token = dict["access_token"] as? String
+//        expires_in = dict["expires_in"] as? NSNumber
+//        uid = dict["uid"] as? String
+        
+        super.init()
+        setValuesForKeysWithDictionary(dict)
+    }
+    
+    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+        print(key)
     }
     
     override var description: String{
@@ -53,12 +70,14 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
     
     
     //保存授权模型到本地文件
+    static  let filePath = "account.plist".cacheDir()
+    
     func saveAccount()
     {
-        NSKeyedArchiver.archiveRootObject(self, toFile: "account.plist".cacheDir())
+        NSKeyedArchiver.archiveRootObject(self, toFile: JKUserAccount.filePath)
     }
     
-    //
+    //静态变量，类方法和对象方法都要调用
     static var account: JKUserAccount?
     
     //从本地读取二进制数据，转换成模型对象
@@ -71,7 +90,13 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
         }
         // 2.加载授权模型
         
-        account =  NSKeyedUnarchiver.unarchiveObjectWithFile("account.plist".cacheDir()) as? JKUserAccount
+        account =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? JKUserAccount
+        //判断是否过期
+        if account?.expires_Date?.compare(NSDate()) == NSComparisonResult.OrderedAscending
+        {
+            // 已经过期
+            return nil
+        }
         return account
     }
     
