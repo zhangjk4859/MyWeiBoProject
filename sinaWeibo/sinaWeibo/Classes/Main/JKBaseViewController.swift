@@ -11,7 +11,7 @@ import UIKit
 class JKBaseViewController: UITableViewController,VisitViewDelegate {
 
     //定义一个变量保存用户登录
-    var userLogin = false
+    var userLogin = JKUserAccount.userLogin()
     //var userLogin = true
      //var userLogin = true
     //source tree commits
@@ -68,7 +68,9 @@ class JKBaseViewController: UITableViewController,VisitViewDelegate {
     func registerBtnWillClick() {
         print(#function)
         let userInfo = JKUserAccount()
-        userInfo.loadUserInfo()
+        userInfo.loadUserInfo { (account, error) in
+            
+        }
         
     }
 

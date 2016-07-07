@@ -69,7 +69,7 @@ class JKUserAccount: NSObject,NSCoding {//遵循NSCoding协议
     func loadUserInfo(finished: (account: JKUserAccount?, error:NSError?)->())
     {
         
-        assert(access_token != nil, "没有授权")
+        //assert(access_token != nil, "没有授权")
         
         let path = "2/users/show.json"
         let params = ["access_token":access_token!, "uid":uid!]
