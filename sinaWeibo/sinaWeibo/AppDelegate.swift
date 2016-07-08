@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = JKTabBarController()
+        //window?.rootViewController = JKTabBarController()
+        window?.rootViewController = JKNewfeatureVC()
         window?.makeKeyAndVisible()
         
         return true

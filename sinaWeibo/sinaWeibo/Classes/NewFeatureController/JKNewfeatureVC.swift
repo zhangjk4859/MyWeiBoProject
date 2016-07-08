@@ -25,84 +25,89 @@ class JKNewfeatureVC: UICollectionViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    //NewfeatureCell.self = [NewfeatureCell class]
+        collectionView?.registerClass(NewfeatureCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
+
 
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
+    // 几个cell
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return pageCount
     }
 
+    // 返回对应indexPath的cell
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-    
-        // Configure the cell
-    
+        // 1.获取cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! NewfeatureCell
+        
+        // 2.设置cell的数据
+        cell.imageIndex = indexPath.item
+        
+        // 3.返回cell
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
+    // 自定义的类
+    private class NewfeatureCell: UICollectionViewCell
+    {
+       //在同一文件中，即使是private 也可以被访问
+        private var imageIndex:Int? {
+            didSet{
+                iconView.image = UIImage(named: "new_feature_\(imageIndex! + 1)")
+            }
+        }
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            
+            // 1.初始化UI
+            setupUI()
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        private func setupUI(){
+        
+            contentView.addSubview(iconView)
+            
+            iconView.jk_Fill(contentView)
+        }
+        
+        // MARK: - 懒加载
+        private lazy var iconView = UIImageView()
     }
-    */
+    
+    private class NewfeatureLayout: UICollectionViewFlowLayout {
+        
+        
+        override func prepareLayout()
+        {
+            // 1.设置layout布局，大小，间距，滚动方向
+            itemSize = UIScreen.mainScreen().bounds.size
+            minimumInteritemSpacing = 0
+            minimumLineSpacing = 0
+            scrollDirection = UICollectionViewScrollDirection.Horizontal
+            
+            // 2.设置collectionView的属性
+            collectionView?.showsHorizontalScrollIndicator = false
+            collectionView?.bounces = false
+            collectionView?.pagingEnabled = true
+        }
+    }
+
+
+
 
 }
