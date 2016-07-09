@@ -58,8 +58,22 @@ class JKNewfeatureVC: UICollectionViewController {
         return cell
     }
     
+    // cell完全显示出来调用的方法
+    override func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        
+        // 让最后一个cell执行动画，显示按钮
+        let path = collectionView.indexPathsForVisibleItems().last!
+        if path.item == (pageCount - 1)
+        {
+            let cell = collectionView.cellForItemAtIndexPath(path) as! NewfeatureCell
+        
+            cell.startBtnAnimation()
+        }
+    }
+    
+    
     // 自定义的类
-    private class NewfeatureCell: UICollectionViewCell
+    class NewfeatureCell: UICollectionViewCell
     {
        //在同一文件中，即使是private 也可以被访问
         private var imageIndex:Int? {
@@ -74,19 +88,59 @@ class JKNewfeatureVC: UICollectionViewController {
             setupUI()
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required init?(coder aDecoder: NSCoder)
+        {
             fatalError("init(coder:) has not been implemented")
         }
         
-        private func setupUI(){
+        private func setupUI()
+        {
         
             contentView.addSubview(iconView)
+            contentView.addSubview(startButton)
             
             iconView.jk_Fill(contentView)
+            startButton.jk_AlignInner(type: JK_AlignType.BottomCenter, referView: contentView, size: nil, offset: CGPoint(x: 0, y: -160))
+        }
+        
+        //按钮出现的时候来一个弹簧动画
+        func startBtnAnimation()
+        {
+            startButton.hidden = false
+            
+            // 执行动画
+            startButton.transform = CGAffineTransformMakeScale(0.0, 0.0)
+            startButton.userInteractionEnabled = false
+            
+            // UIViewAnimationOptions(rawValue: 0) == OC knilOptions
+            UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
+                // 清空形变
+                self.startButton.transform = CGAffineTransformIdentity
+                }, completion: { (_) -> Void in
+                    self.startButton.userInteractionEnabled = true
+            })
+        }
+
+        
+        //按钮点击进入主页
+        func customBtnClick()
+        {
+            print("-----")
         }
         
         // MARK: - 懒加载
         private lazy var iconView = UIImageView()
+        //cell上加一个按钮
+        private lazy var startButton: UIButton = {
+            let btn = UIButton()
+            btn.setBackgroundImage(UIImage(named: "new_feature_button"), forState: UIControlState.Normal)
+            btn.setBackgroundImage(UIImage(named: "new_feature_button_highlighted"), forState: UIControlState.Highlighted)
+            
+            btn.hidden = true
+            btn.addTarget(self, action: #selector(NewfeatureCell.customBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
+            return btn
+        }()
+
     }
     
     private class NewfeatureLayout: UICollectionViewFlowLayout {
