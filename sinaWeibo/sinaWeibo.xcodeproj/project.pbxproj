@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A03E6CE1D315637004B74FC /* JKWelcomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A03E6CD1D315637004B74FC /* JKWelcomVC.swift */; };
 		0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F2B9B1D03F425002A03D0 /* AppDelegate.swift */; };
 		0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F2B9D1D03F425002A03D0 /* ViewController.swift */; };
 		0A1F2BA31D03F425002A03D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1F2BA21D03F425002A03D0 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A03E6CD1D315637004B74FC /* JKWelcomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKWelcomVC.swift; sourceTree = "<group>"; };
 		0A1F2B981D03F425002A03D0 /* sinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1F2B9B1D03F425002A03D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A1F2B9D1D03F425002A03D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				0AED93161D2E4D6D00EC0896 /* JKNewfeatureVC.swift */,
+				0A03E6CD1D315637004B74FC /* JKWelcomVC.swift */,
 			);
 			path = NewFeatureController;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				0A1F2BD81D0400EC002A03D0 /* JKMessageTableViewController.swift in Sources */,
 				0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */,
 				0A6879E21D2D457C003C7309 /* String+Category.swift in Sources */,
+				0A03E6CE1D315637004B74FC /* JKWelcomVC.swift in Sources */,
 				0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */,
 				0A1F2BD41D040053002A03D0 /* JKHomeTableViewController.swift in Sources */,
 				0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */,
