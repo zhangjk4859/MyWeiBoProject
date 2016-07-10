@@ -31,6 +31,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    private func isNewupdate() -> Bool{
+        // 获取当前软件的版本号 --> info.plist
+        let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+        
+        // 获取老版本
+        let sandboxVersion =  NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? ""
+        
+        print("current = \(currentVersion) sandbox = \(sandboxVersion)")
+        
+        // 开始比较
+        if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending
+        {
+            
+            // iOS7以后就不用调用同步方法了
+            NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: "CFBundleShortVersionString")
+            return true
+        }
+        
+        // 3.2如果当前< | ==  --> 没有新版本
+        return false
+    }
+
    
 
 }
