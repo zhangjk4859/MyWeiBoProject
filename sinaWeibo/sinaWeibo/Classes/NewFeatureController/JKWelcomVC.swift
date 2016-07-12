@@ -60,6 +60,7 @@ class JKWelcomVC: UIViewController {
                    // print("OK")
                     // 去主页
                     NSNotificationCenter.defaultCenter().postNotificationName(JKSwitchRootVCNotification, object: true)
+                    //test
             })
         }
         
