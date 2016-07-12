@@ -57,7 +57,9 @@ class JKWelcomVC: UIViewController {
             UIView.animateWithDuration( 10.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
                 self.messageLabel.alpha = 1.0
                 }, completion: { (_) -> Void in
-                    print("OK")
+                   // print("OK")
+                    // 去主页
+                    NSNotificationCenter.defaultCenter().postNotificationName(JKSwitchRootVCNotification, object: true)
             })
         }
         
