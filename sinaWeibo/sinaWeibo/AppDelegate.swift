@@ -8,6 +8,9 @@
 
 import UIKit
 
+// 切换控制器通知
+let JKSwitchRootVCNotification = "SwitchRootVCNotification"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,8 +31,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        print(isNewupdate())
+        
+        // 注册一个通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(switchRootVC), name: JKSwitchRootVCNotification, object: nil)
+        
+        
+        
         return true
     }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    //切换根控制器
+    func switchRootVC(notify: NSNotification)
+    {
+        
+        if notify.object as! Bool
+        {
+            window?.rootViewController = JKTabBarController()
+        }else
+        {
+            window?.rootViewController = JKWelcomVC()
+        }
+    }
+    
+    
 
     private func isNewupdate() -> Bool{
         // 获取当前软件的版本号 --> info.plist
@@ -43,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 开始比较
         if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending
         {
-            
             // iOS7以后就不用调用同步方法了
             NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: "CFBundleShortVersionString")
             return true
@@ -52,8 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 3.2如果当前< | ==  --> 没有新版本
         return false
     }
-
-   
 
 }
 
