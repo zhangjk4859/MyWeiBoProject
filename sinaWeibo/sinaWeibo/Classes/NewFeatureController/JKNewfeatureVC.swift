@@ -126,6 +126,8 @@ class JKNewfeatureVC: UICollectionViewController {
         func customBtnClick()
         {
             print("-----")
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(JKSwitchRootVCNotification, object: true)
         }
         
         // MARK: - 懒加载
