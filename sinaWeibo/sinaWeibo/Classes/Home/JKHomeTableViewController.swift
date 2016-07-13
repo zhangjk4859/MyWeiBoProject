@@ -26,7 +26,6 @@ class JKHomeTableViewController: JKBaseViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         // 1.如果没有登录, 就设置未登录界面的信息
         if !userLogin
         {
@@ -41,10 +40,16 @@ class JKHomeTableViewController: JKBaseViewController
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(change), name: animatorWillDismiss, object: nil)
         
         // 注册cell
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: JKHomeReuseIdentifier)
+        tableView.registerClass(JKHomeCell.self, forCellReuseIdentifier: JKHomeReuseIdentifier)
+        
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         // 4.加载微博数据
         loadData()
+        
+        
         
     }
     
@@ -161,10 +166,10 @@ extension JKHomeTableViewController
     //每行显示什么内容
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 1.获取cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(JKHomeReuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(JKHomeReuseIdentifier, forIndexPath: indexPath) as! JKHomeCell
         // 2.设置数据
         let status = statuses![indexPath.row]
-        cell.textLabel?.text = status.text
+        cell.status = status
         // 3.返回cell
         return cell
     }

@@ -28,6 +28,7 @@
 		0A8425A41D2A6DBF0039E6C0 /* Pods.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 34C32B116F4906E0434478FC /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A8B18941D26096A00AD873E /* JKOAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B18931D26096A00AD873E /* JKOAuthVC.swift */; };
 		0AA17EA81D27C4D30029B986 /* JKNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */; };
+		0AAB1FEC1D3674B000193D7E /* JKHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */; };
 		0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */; };
 		0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */; };
 		0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */; };
@@ -101,6 +102,7 @@
 		0A6879E11D2D457C003C7309 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
 		0A8B18931D26096A00AD873E /* JKOAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKOAuthVC.swift; sourceTree = "<group>"; };
 		0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNetworkTools.swift; sourceTree = "<group>"; };
+		0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKHomeCell.swift; sourceTree = "<group>"; };
 		0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Category.swift"; path = "sinaWeibo/Classes/Tools/UIBarButtonItem+Category.swift"; sourceTree = SOURCE_ROOT; };
 		0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JKTitleButton.swift; path = sinaWeibo/Classes/Tools/JKTitleButton.swift; sourceTree = SOURCE_ROOT; };
 		0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPopoverViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				0ACD2BE21D24F95E00707EC8 /* QRCode */,
 				0ACD2BD91D24C33300707EC8 /* Popover */,
 				0A1F2BD31D040053002A03D0 /* JKHomeTableViewController.swift */,
+				0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */,
 				0A202B2E1D36390600AAB9CA /* JKStatus.swift */,
 				0A202B301D3640CC00AAB9CA /* JKUser.swift */,
 			);
@@ -537,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AAB1FEC1D3674B000193D7E /* JKHomeCell.swift in Sources */,
 				0A1F2BD21D03FFFA002A03D0 /* JKTabBarController.swift in Sources */,
 				0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */,
 				0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */,
