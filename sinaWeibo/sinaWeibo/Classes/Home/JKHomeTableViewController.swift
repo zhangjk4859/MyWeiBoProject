@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class JKHomeTableViewController: JKBaseViewController {
+let JKHomeReuseIdentifier = "JKHomeReuseIdentifier"
+
+class JKHomeTableViewController: JKBaseViewController
+{
+    // 保存tableView数据
+    var statuses: [JKStatus]?
+        {
+        didSet{
+            // 有了数据就刷新表格
+            tableView.reloadData()
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +39,31 @@ class JKHomeTableViewController: JKBaseViewController {
         //注册通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(change), name: animatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(change), name: animatorWillDismiss, object: nil)
+        
+        // 注册cell
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: JKHomeReuseIdentifier)
+        
+        // 4.加载微博数据
+        loadData()
+        
     }
+    
+    /**
+     获取微博数据
+     */
+    private func loadData()
+    {
+        JKStatus.loadStatuses { (models, error) -> () in
+            
+            if error != nil
+            {
+                return
+            }
+            self.statuses = models
+        }
+    }
+
+    
     
     //从自身移除通知
     deinit{
@@ -99,18 +136,7 @@ class JKHomeTableViewController: JKBaseViewController {
         presentViewController(vc!, animated: true, completion: nil)
     }
     
-    // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-    
+  
     //默认没有展示
     var isPresent : Bool = false
     
@@ -124,6 +150,25 @@ class JKHomeTableViewController: JKBaseViewController {
     
 }
 
+
+extension JKHomeTableViewController
+{
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statuses?.count ?? 0
+    }
+    
+    
+    //每行显示什么内容
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // 1.获取cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(JKHomeReuseIdentifier, forIndexPath: indexPath)
+        // 2.设置数据
+        let status = statuses![indexPath.row]
+        cell.textLabel?.text = status.text
+        // 3.返回cell
+        return cell
+    }
+}
 
 
 
