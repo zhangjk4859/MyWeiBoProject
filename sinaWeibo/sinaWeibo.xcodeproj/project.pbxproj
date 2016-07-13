@@ -20,6 +20,7 @@
 		0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F2BD91D0400FB002A03D0 /* JKProfileTableViewController.swift */; };
 		0A1F2BDD1D04175F002A03D0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */; };
 		0A202B2F1D36390600AAB9CA /* JKStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A202B2E1D36390600AAB9CA /* JKStatus.swift */; };
+		0A202B311D3640CC00AAB9CA /* JKUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A202B301D3640CC00AAB9CA /* JKUser.swift */; };
 		0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C511D0EB83900256D36 /* JKNullViewController.swift */; };
 		0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */; };
 		0A6879E21D2D457C003C7309 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6879E11D2D457C003C7309 /* String+Category.swift */; };
@@ -94,6 +95,7 @@
 		0A1F2BD91D0400FB002A03D0 /* JKProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKProfileTableViewController.swift; sourceTree = "<group>"; };
 		0A1F2BDC1D04175F002A03D0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		0A202B2E1D36390600AAB9CA /* JKStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKStatus.swift; sourceTree = "<group>"; };
+		0A202B301D3640CC00AAB9CA /* JKUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKUser.swift; sourceTree = "<group>"; };
 		0A306C511D0EB83900256D36 /* JKNullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNullViewController.swift; sourceTree = "<group>"; };
 		0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKBaseViewController.swift; sourceTree = "<group>"; };
 		0A6879E11D2D457C003C7309 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				0ACD2BD91D24C33300707EC8 /* Popover */,
 				0A1F2BD31D040053002A03D0 /* JKHomeTableViewController.swift */,
 				0A202B2E1D36390600AAB9CA /* JKStatus.swift */,
+				0A202B301D3640CC00AAB9CA /* JKUser.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */,
 				0AE5A7491D2B3E1C00212AC3 /* JKUserAccount.swift in Sources */,
 				0A202B2F1D36390600AAB9CA /* JKStatus.swift in Sources */,
+				0A202B311D3640CC00AAB9CA /* JKUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

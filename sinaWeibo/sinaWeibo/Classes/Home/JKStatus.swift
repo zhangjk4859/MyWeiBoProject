@@ -21,8 +21,10 @@ class JKStatus: NSObject
     var source: String?
     // 配图数组
     var pic_urls: [[String: AnyObject]]?
+    // 用户信息
+    var user: JKUser?
     
-    /// 加载微博数据,用blcok回调的方式
+    // 加载微博数据,用blcok回调的方式
     class func loadStatuses(finished: (models:[JKStatus]?, error:NSError?)->()){
         let path = "2/statuses/home_timeline.json"
         let params = ["access_token": JKUserAccount.loadAccount()!.access_token!]
@@ -60,6 +62,22 @@ class JKStatus: NSObject
         super.init()
         setValuesForKeysWithDictionary(dict)
     }
+    
+    // setValuesForKeysWithDictionary拦截方法，把用户信息填写进去
+    override func setValue(value: AnyObject?, forKey key: String)
+    {
+        
+        if "user" == key
+        {
+            // 2.根据user key对应的字典创建一个模型
+            user = JKUser(dict: value as! [String : AnyObject])
+            return
+        }
+        
+        // 3,调用父类方法, 按照系统默认处理
+        super.setValue(value, forKey: key)
+    }
+    
     
     //模型里没有属性的时候重写方法防止报错
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
