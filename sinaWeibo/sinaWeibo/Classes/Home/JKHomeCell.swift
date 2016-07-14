@@ -31,8 +31,10 @@ class JKHomeCell: UITableViewCell {
             //设置会员图标显示
             vipView.image = status?.user?.mbrankImage
             
-            // 设置来源
+            //设置来源
             sourceLabel.text = status?.source
+            // 设置时间
+            timeLabel.text = status?.created_at
             
         }
     }

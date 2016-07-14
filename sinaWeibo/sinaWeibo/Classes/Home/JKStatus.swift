@@ -11,8 +11,18 @@ import UIKit
 class JKStatus: NSObject
 {
     
-    // 微博创建时间
+    //微博创建时间
     var created_at: String?
+        {
+        didSet{
+            
+            //将字符串转换为时间，经过处理后再转换成字符串
+            let createdDate = NSDate.dateWithStr(created_at!)
+
+            created_at = createdDate.descDate
+        }
+    }
+
     // 微博ID
     var id: Int = 0
     // 微博信息内容

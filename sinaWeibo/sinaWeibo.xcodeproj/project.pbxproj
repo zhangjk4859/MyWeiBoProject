@@ -44,6 +44,7 @@
 		0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */; };
 		0AE5A7491D2B3E1C00212AC3 /* JKUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5A7481D2B3E1C00212AC3 /* JKUserAccount.swift */; };
 		0AED93171D2E4D6D00EC0896 /* JKNewfeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AED93161D2E4D6D00EC0896 /* JKNewfeatureVC.swift */; };
+		0AF78D541D3740E000DD2662 /* NSDate+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF78D531D3740E000DD2662 /* NSDate+Category.swift */; };
 		25EE39D55A14076B98E87963 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C32B116F4906E0434478FC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		0AE5A7481D2B3E1C00212AC3 /* JKUserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKUserAccount.swift; sourceTree = "<group>"; };
 		0AED93161D2E4D6D00EC0896 /* JKNewfeatureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNewfeatureVC.swift; sourceTree = "<group>"; };
+		0AF78D531D3740E000DD2662 /* NSDate+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Category.swift"; path = "sinaWeibo/Classes/Home/NSDate+Category.swift"; sourceTree = SOURCE_ROOT; };
 		17C953096CF92C6C5BF807E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		34C32B116F4906E0434478FC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AEB96878C1B823951BAFBA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */,
 				0A5DE58D1D370CB0006D4173 /* UIButton+Category.swift */,
 				0A5DE58F1D370CC9006D4173 /* UILabel+Category.swift */,
+				0AF78D531D3740E000DD2662 /* NSDate+Category.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 			files = (
 				0AAB1FEC1D3674B000193D7E /* JKHomeCell.swift in Sources */,
 				0A1F2BD21D03FFFA002A03D0 /* JKTabBarController.swift in Sources */,
+				0AF78D541D3740E000DD2662 /* NSDate+Category.swift in Sources */,
 				0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */,
 				0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */,
 				0ACD2BDF1D24C51900707EC8 /* JKPopoverPC.swift in Sources */,
