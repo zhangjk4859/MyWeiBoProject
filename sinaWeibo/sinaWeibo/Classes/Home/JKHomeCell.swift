@@ -19,6 +19,12 @@ class JKHomeCell: UITableViewCell {
             timeLabel.text = "万历年间"
             sourceLabel.text = "来自: 星星的你"
             contentLabel.text = status?.text
+            
+            //设置用户头像
+            if let url = status?.user?.imageURL
+            {
+                iconView.sd_setImageWithURL(url)
+            }
         }
     }
     
