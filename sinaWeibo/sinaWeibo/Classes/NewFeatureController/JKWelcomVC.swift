@@ -48,7 +48,7 @@ class JKWelcomVC: UIViewController {
         print(-UIScreen.mainScreen().bounds.height -  bottomCons!.constant)
         
         // 3.执行动画
-        UIView.animateWithDuration(10, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
             // 头像动画
             self.iconView.layoutIfNeeded()
         }) { (_) -> Void in

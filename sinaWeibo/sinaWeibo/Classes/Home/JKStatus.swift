@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 class JKStatus: NSObject
 {
@@ -49,8 +51,27 @@ class JKStatus: NSObject
         }
     }
 
-    // 配图数组
+    // 配图数组，第一步，把URL全部放到数组中，第二步，同时把图片缓存到本地
     var pic_urls: [[String: AnyObject]]?
+        {
+        didSet{
+            // 1.初始化数组
+            storedPicURLS = [NSURL]()
+            // 2遍历取出所有的图片路径字符串
+            for dict in pic_urls!
+            {
+                if let urlStr = dict["thumbnail_pic"]
+                {
+                    // 将字符串转换为URL保存到数组中
+                    storedPicURLS?.append(NSURL(string: urlStr as! String)!)
+                }
+            }
+        }
+    }
+    
+    // 保存当前微博所有配图的URL
+    var storedPicURLS: [NSURL]?
+    
     // 用户信息
     var user: JKUser?
     
@@ -64,9 +85,13 @@ class JKStatus: NSObject
             // 1.取出statuses key对应的数组 (存储的都是字典)
             // 2.遍历数组, 将字典转换为模型
             let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
-                        print(models)
-            // 2.通过闭包将数据传递给调用者
-            finished(models: models, error: nil)
+                        //print(models)
+            
+            // 3.缓存微博配图
+            cacheStatusImages(models, finished: finished)
+            
+//            // 2.通过闭包将数据传递给调用者
+//            finished(models: models, error: nil)
             
         }) { (_, error) -> Void in
             print(error)
@@ -74,6 +99,40 @@ class JKStatus: NSObject
             
         }
     }
+    
+    //类方法调用类方法
+    class func cacheStatusImages(list: [JKStatus], finished: (models:[JKStatus]?, error:NSError?)->()) {
+        
+        // 1.创建一个组
+        let group = dispatch_group_create()
+        
+        // 1.缓存图片
+        for status in list
+        {
+            for url in status.storedPicURLS!
+            {
+                // 将当前的下载操作添加到组中
+                dispatch_group_enter(group)
+                
+                // 缓存图片
+                SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (_, _, _, _, _) -> Void in
+                    
+                    // 离开当前组
+                    dispatch_group_leave(group)
+                    
+                })
+            }
+        }
+        
+        // 2.当所有图片都下载完毕再通过block通知调用者
+        dispatch_group_notify(group, dispatch_get_main_queue()) { () -> Void in
+    
+            //图片缓存完毕后再通知外界下载完毕
+            finished(models: list, error: nil)
+        }
+    }
+    
+
     
     
     // 将字典数组转换为模型数组
