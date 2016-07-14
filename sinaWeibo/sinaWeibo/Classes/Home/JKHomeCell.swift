@@ -17,7 +17,6 @@ class JKHomeCell: UITableViewCell {
             nameLabel.text = status?.user?.name
             
             timeLabel.text = "万历年间"
-            sourceLabel.text = "来自: 星星的你"
             contentLabel.text = status?.text
             
             //设置用户头像
@@ -28,6 +27,13 @@ class JKHomeCell: UITableViewCell {
             
             //设置认证图标,由模型处理提供
             verifiedView.image = status?.user?.verifiedImage
+            
+            //设置会员图标显示
+            vipView.image = status?.user?.mbrankImage
+            
+            // 设置来源
+            sourceLabel.text = status?.source
+            
         }
     }
     

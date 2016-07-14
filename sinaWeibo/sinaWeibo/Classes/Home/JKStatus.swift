@@ -19,6 +19,26 @@ class JKStatus: NSObject
     var text: String?
     // 微博来源
     var source: String?
+        {
+        didSet{
+            // <a href=\"http://app.weibo.com/t/feed/4fuyNj\" rel=\"nofollow\">即刻笔记</a>
+            print(source)
+            // 1.截取字符串
+            if source?.characters.count > 0
+            {
+                let str = source!
+
+                // 1.1获取开始截取的位置
+                let startLocation = (str as NSString).rangeOfString(">").location + 1
+                // 1.2获取截取的长度
+                let length = (str as NSString).rangeOfString("<", options: NSStringCompareOptions.BackwardsSearch).location - startLocation
+                // 1.3截取字符串
+                source = "来自:" + (str as NSString).substringWithRange(NSMakeRange(startLocation, length))
+                print(source)
+            }
+        }
+    }
+
     // 配图数组
     var pic_urls: [[String: AnyObject]]?
     // 用户信息
@@ -34,7 +54,7 @@ class JKStatus: NSObject
             // 1.取出statuses key对应的数组 (存储的都是字典)
             // 2.遍历数组, 将字典转换为模型
             let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
-            //            print(models)
+                        print(models)
             // 2.通过闭包将数据传递给调用者
             finished(models: models, error: nil)
             

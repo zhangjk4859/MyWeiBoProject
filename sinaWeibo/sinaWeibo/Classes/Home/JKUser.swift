@@ -51,6 +51,20 @@ class JKUser: NSObject
     // 用户认证图片
     var verifiedImage: UIImage?
     
+    // 会员等级
+    var mbrank: Int = 0 //基本数据类型要初始化
+        {
+        didSet{
+            if mbrank > 0 && mbrank < 7
+            {
+                mbrankImage = UIImage(named: "common_icon_membership_level\(mbrank)")//拼接图片名
+            }
+        }
+    }
+    var mbrankImage: UIImage?
+    
+    
+    
     // 字典转模型
     init(dict: [String: AnyObject])
     {
