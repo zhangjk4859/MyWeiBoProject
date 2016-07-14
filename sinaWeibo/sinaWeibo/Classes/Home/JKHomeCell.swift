@@ -25,6 +25,9 @@ class JKHomeCell: UITableViewCell {
             {
                 iconView.sd_setImageWithURL(url)
             }
+            
+            //设置认证图标,由模型处理提供
+            verifiedView.image = status?.user?.verifiedImage
         }
     }
     
