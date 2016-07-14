@@ -23,6 +23,8 @@
 		0A202B311D3640CC00AAB9CA /* JKUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A202B301D3640CC00AAB9CA /* JKUser.swift */; };
 		0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C511D0EB83900256D36 /* JKNullViewController.swift */; };
 		0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */; };
+		0A5DE58E1D370CB0006D4173 /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DE58D1D370CB0006D4173 /* UIButton+Category.swift */; };
+		0A5DE5901D370CC9006D4173 /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DE58F1D370CC9006D4173 /* UILabel+Category.swift */; };
 		0A6879E21D2D457C003C7309 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6879E11D2D457C003C7309 /* String+Category.swift */; };
 		0A8425A31D2A6D210039E6C0 /* (null) in CopyFiles */ = {isa = PBXBuildFile; };
 		0A8425A41D2A6DBF0039E6C0 /* Pods.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 34C32B116F4906E0434478FC /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -99,6 +101,8 @@
 		0A202B301D3640CC00AAB9CA /* JKUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKUser.swift; sourceTree = "<group>"; };
 		0A306C511D0EB83900256D36 /* JKNullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNullViewController.swift; sourceTree = "<group>"; };
 		0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKBaseViewController.swift; sourceTree = "<group>"; };
+		0A5DE58D1D370CB0006D4173 /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Category.swift"; path = "sinaWeibo/Classes/Home/UIButton+Category.swift"; sourceTree = SOURCE_ROOT; };
+		0A5DE58F1D370CC9006D4173 /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+Category.swift"; path = "sinaWeibo/Classes/Home/UILabel+Category.swift"; sourceTree = SOURCE_ROOT; };
 		0A6879E11D2D457C003C7309 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
 		0A8B18931D26096A00AD873E /* JKOAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKOAuthVC.swift; sourceTree = "<group>"; };
 		0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNetworkTools.swift; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 			children = (
 				0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */,
 				0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */,
+				0A5DE58D1D370CB0006D4173 /* UIButton+Category.swift */,
+				0A5DE58F1D370CC9006D4173 /* UILabel+Category.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -560,11 +566,13 @@
 				0A03E6CE1D315637004B74FC /* JKWelcomVC.swift in Sources */,
 				0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */,
 				0A1F2BD41D040053002A03D0 /* JKHomeTableViewController.swift in Sources */,
+				0A5DE5901D370CC9006D4173 /* UILabel+Category.swift in Sources */,
 				0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */,
 				0ACD2BE11D24EC3F00707EC8 /* JKPopoverAnimator.swift in Sources */,
 				0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */,
 				0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */,
 				0AE5A7491D2B3E1C00212AC3 /* JKUserAccount.swift in Sources */,
+				0A5DE58E1D370CB0006D4173 /* UIButton+Category.swift in Sources */,
 				0A202B2F1D36390600AAB9CA /* JKStatus.swift in Sources */,
 				0A202B311D3640CC00AAB9CA /* JKUser.swift in Sources */,
 			);

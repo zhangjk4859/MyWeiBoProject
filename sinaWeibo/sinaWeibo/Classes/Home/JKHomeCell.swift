@@ -68,42 +68,26 @@ class JKHomeCell: UITableViewCell {
     
     
     // MARK: - 懒加载
-    /// 头像
+    // 头像
     private lazy var iconView: UIImageView =
         {
             let iv = UIImageView(image: UIImage(named: "avatar_default_big"))
             return iv
     }()
-    /// 认证图标
+    // 认证图标
     private lazy var verifiedView: UIImageView = UIImageView(image: UIImage(named: "avatar_enterprise_vip"))
     
-    /// 昵称
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.darkGrayColor()
-        label.font = UIFont.systemFontOfSize(14)
-        return label
-    }()
-    /// 会员图标
+    // 昵称
+    private lazy var nameLabel: UILabel = .createLabel(UIColor.darkGrayColor(), fontSize: 14)
+    // 会员图标
     private lazy var vipView: UIImageView = UIImageView(image: UIImage(named: "common_icon_membership"))
     
-    /// 时间
-    private lazy var timeLabel: UILabel =
-        {
-            let label = UILabel()
-            label.textColor = UIColor.darkGrayColor()
-            label.font = UIFont.systemFontOfSize(14)
-            return label
-    }()
-    /// 来源
+    // 时间
+    private lazy var timeLabel: UILabel = .createLabel(UIColor.darkGrayColor(), fontSize: 14)
+    // 来源
     private lazy var sourceLabel: UILabel =
-        {
-            let label = UILabel()
-            label.textColor = UIColor.darkGrayColor()
-            label.font = UIFont.systemFontOfSize(14)
-            return label
-    }()
-    /// 正文
+        .createLabel(UIColor.darkGrayColor(), fontSize: 14)
+    // 正文
     private lazy var contentLabel: UILabel =
         {
             let label = UILabel()
@@ -114,7 +98,7 @@ class JKHomeCell: UITableViewCell {
             return label
     }()
     
-    /// 底部工具条
+    // 底部工具条
     private lazy var footerView: StatusFooterView = StatusFooterView()
 
 
@@ -140,42 +124,15 @@ class StatusFooterView: UIView {
         jk_HorizontalTile([retweetBtn, unlikeBtn, commonBtn], insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
     
-    // MARK: - 懒加载
+    // MARK: - 懒加载底部三个按钮
     // 转发
-    private lazy var retweetBtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "timeline_icon_retweet"), forState: UIControlState.Normal)
-        btn.setTitle("转发", forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(10)
-        btn.setBackgroundImage(UIImage(named: "timeline_card_bottom_background"), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
-        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        return btn
-    }()
+    private lazy var retweetBtn: UIButton = .createButton("timeline_icon_retweet", title: "转发")
     
     // 赞
-    private lazy var unlikeBtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "timeline_icon_unlike"), forState: UIControlState.Normal)
-        btn.setTitle("赞", forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(10)
-        btn.setBackgroundImage(UIImage(named: "timeline_card_bottom_background"), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
-        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        return btn
-    }()
+    private lazy var unlikeBtn: UIButton = .createButton("timeline_icon_unlike", title: "赞")
     
     // 评论
-    private lazy var commonBtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "timeline_icon_comment"), forState: UIControlState.Normal)
-        btn.setTitle("评论", forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(10)
-        btn.setBackgroundImage(UIImage(named: "timeline_card_bottom_background"), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
-        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        return btn
-    }()
+    private lazy var commonBtn: UIButton = .createButton("timeline_icon_comment", title: "评论")
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
