@@ -26,6 +26,9 @@
 		0A5DE58E1D370CB0006D4173 /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DE58D1D370CB0006D4173 /* UIButton+Category.swift */; };
 		0A5DE5901D370CC9006D4173 /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DE58F1D370CC9006D4173 /* UILabel+Category.swift */; };
 		0A6879E21D2D457C003C7309 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6879E11D2D457C003C7309 /* String+Category.swift */; };
+		0A7859171D39EE8100DA763A /* JKStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7859161D39EE8100DA763A /* JKStatusPictureView.swift */; };
+		0A7859191D39EFF900DA763A /* JKStatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7859181D39EFF900DA763A /* JKStatusHeaderView.swift */; };
+		0A78591B1D39F09B00DA763A /* JKStatusBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78591A1D39F09B00DA763A /* JKStatusBottomView.swift */; };
 		0A8425A31D2A6D210039E6C0 /* (null) in CopyFiles */ = {isa = PBXBuildFile; };
 		0A8425A41D2A6DBF0039E6C0 /* Pods.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 34C32B116F4906E0434478FC /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A8B18941D26096A00AD873E /* JKOAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B18931D26096A00AD873E /* JKOAuthVC.swift */; };
@@ -105,6 +108,9 @@
 		0A5DE58D1D370CB0006D4173 /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Category.swift"; path = "sinaWeibo/Classes/Home/UIButton+Category.swift"; sourceTree = SOURCE_ROOT; };
 		0A5DE58F1D370CC9006D4173 /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+Category.swift"; path = "sinaWeibo/Classes/Home/UILabel+Category.swift"; sourceTree = SOURCE_ROOT; };
 		0A6879E11D2D457C003C7309 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
+		0A7859161D39EE8100DA763A /* JKStatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKStatusPictureView.swift; sourceTree = "<group>"; };
+		0A7859181D39EFF900DA763A /* JKStatusHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKStatusHeaderView.swift; sourceTree = "<group>"; };
+		0A78591A1D39F09B00DA763A /* JKStatusBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKStatusBottomView.swift; sourceTree = "<group>"; };
 		0A8B18931D26096A00AD873E /* JKOAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKOAuthVC.swift; sourceTree = "<group>"; };
 		0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNetworkTools.swift; sourceTree = "<group>"; };
 		0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKHomeCell.swift; sourceTree = "<group>"; };
@@ -248,6 +254,9 @@
 				0ACD2BD91D24C33300707EC8 /* Popover */,
 				0A1F2BD31D040053002A03D0 /* JKHomeTableViewController.swift */,
 				0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */,
+				0A78591A1D39F09B00DA763A /* JKStatusBottomView.swift */,
+				0A7859181D39EFF900DA763A /* JKStatusHeaderView.swift */,
+				0A7859161D39EE8100DA763A /* JKStatusPictureView.swift */,
 				0A202B2E1D36390600AAB9CA /* JKStatus.swift */,
 				0A202B301D3640CC00AAB9CA /* JKUser.swift */,
 			);
@@ -552,6 +561,7 @@
 				0AAB1FEC1D3674B000193D7E /* JKHomeCell.swift in Sources */,
 				0A1F2BD21D03FFFA002A03D0 /* JKTabBarController.swift in Sources */,
 				0AF78D541D3740E000DD2662 /* NSDate+Category.swift in Sources */,
+				0A78591B1D39F09B00DA763A /* JKStatusBottomView.swift in Sources */,
 				0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */,
 				0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */,
 				0ACD2BDF1D24C51900707EC8 /* JKPopoverPC.swift in Sources */,
@@ -560,10 +570,12 @@
 				0ACD2BEA1D252F4900707EC8 /* JKQRCodeCardVC.swift in Sources */,
 				0A8B18941D26096A00AD873E /* JKOAuthVC.swift in Sources */,
 				0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */,
+				0A7859171D39EE8100DA763A /* JKStatusPictureView.swift in Sources */,
 				0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,
 				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
 				0AA17EA81D27C4D30029B986 /* JKNetworkTools.swift in Sources */,
+				0A7859191D39EFF900DA763A /* JKStatusHeaderView.swift in Sources */,
 				0A1F2BD81D0400EC002A03D0 /* JKMessageTableViewController.swift in Sources */,
 				0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */,
 				0A6879E21D2D457C003C7309 /* String+Category.swift in Sources */,

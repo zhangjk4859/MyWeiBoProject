@@ -75,6 +75,7 @@ class JKHomeTableViewController: JKBaseViewController
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    //修改标题状态
     func change(){
         let titleBtn = navigationItem.titleView as! JKTitleButton
         titleBtn.selected = !titleBtn.selected
@@ -153,6 +154,14 @@ class JKHomeTableViewController: JKBaseViewController
         return pa
     }()
     
+    // 每一行的高度缓存起来
+    var rowCache: [Int: CGFloat] = [Int: CGFloat]()
+    
+    override func didReceiveMemoryWarning() {
+        // 清空缓存
+        rowCache.removeAll()
+    }
+    
 }
 
 
@@ -173,6 +182,34 @@ extension JKHomeTableViewController
         // 3.返回cell
         return cell
     }
+    
+    // 返回行高
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // 1.取出对应行的模型
+        let status = statuses![indexPath.row]
+        
+        // 2.判断缓存中有没有
+        if let height = rowCache[status.id]
+        {
+            print("从缓存中获取")
+            return height
+        }
+        
+        // 3.拿到cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(JKHomeReuseIdentifier) as! JKHomeCell
+        
+        // 4.拿到对应行的行高
+        let rowHeight = cell.rowHeight(status)
+        
+        // 5.缓存行高
+        rowCache[status.id] = rowHeight
+        print("重新计算")
+        
+        // 6.返回行高
+        return rowHeight
+    }
+
+    
 }
 
 
