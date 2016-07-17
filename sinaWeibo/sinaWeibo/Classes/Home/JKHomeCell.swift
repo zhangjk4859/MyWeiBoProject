@@ -16,6 +16,8 @@ class JKHomeCell: UITableViewCell {
     var pictureWidthCons: NSLayoutConstraint?
     // 保存配图的高度约束
     var pictureHeightCons: NSLayoutConstraint?
+    // 保存配图的顶部约束
+    var pictureTopCons: NSLayoutConstraint?
     
     var status: JKStatus?
         {
@@ -47,7 +49,7 @@ class JKHomeCell: UITableViewCell {
         setupUI()
     }
     
-    private func setupUI()
+     func setupUI()
     {
         // 1.添加子控件
         contentView.addSubview(topView)
@@ -90,7 +92,7 @@ class JKHomeCell: UITableViewCell {
     private lazy var topView: JKStatusHeaderView = JKStatusHeaderView()
     
     // 正文
-    private lazy var contentLabel: UILabel =
+     lazy var contentLabel: UILabel =
         {
             let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
             label.numberOfLines = 0
@@ -99,10 +101,10 @@ class JKHomeCell: UITableViewCell {
     }()
     
     // 配图
-    private lazy var pictureView: JKStatusPictureView = JKStatusPictureView()
+     lazy var pictureView: JKStatusPictureView = JKStatusPictureView()
     
     // 底部工具条
-    private lazy var footerView: JKStatusBottomView = JKStatusBottomView()
+     lazy var footerView: JKStatusBottomView = JKStatusBottomView()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

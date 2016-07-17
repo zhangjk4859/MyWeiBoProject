@@ -43,6 +43,8 @@
 		0ACD2BE51D24F9D900707EC8 /* JKQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE31D24F9D900707EC8 /* JKQRCodeVC.swift */; };
 		0ACD2BE81D24FA0800707EC8 /* JKQRCodeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE71D24FA0800707EC8 /* JKQRCodeVC.storyboard */; };
 		0ACD2BEA1D252F4900707EC8 /* JKQRCodeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE91D252F4900707EC8 /* JKQRCodeCardVC.swift */; };
+		0ADC0B2A1D3BD400007F5306 /* JKNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC0B291D3BD400007F5306 /* JKNormalCell.swift */; };
+		0ADC0B2C1D3BD419007F5306 /* JKRepostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC0B2B1D3BD419007F5306 /* JKRepostCell.swift */; };
 		0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B21D2286B8009C4E72 /* JKVisitView.swift */; };
 		0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */; };
 		0AE5A7491D2B3E1C00212AC3 /* JKUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5A7481D2B3E1C00212AC3 /* JKUserAccount.swift */; };
@@ -123,6 +125,8 @@
 		0ACD2BE31D24F9D900707EC8 /* JKQRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKQRCodeVC.swift; sourceTree = "<group>"; };
 		0ACD2BE71D24FA0800707EC8 /* JKQRCodeVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JKQRCodeVC.storyboard; sourceTree = "<group>"; };
 		0ACD2BE91D252F4900707EC8 /* JKQRCodeCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKQRCodeCardVC.swift; sourceTree = "<group>"; };
+		0ADC0B291D3BD400007F5306 /* JKNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNormalCell.swift; sourceTree = "<group>"; };
+		0ADC0B2B1D3BD419007F5306 /* JKRepostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKRepostCell.swift; sourceTree = "<group>"; };
 		0AE555B21D2286B8009C4E72 /* JKVisitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKVisitView.swift; sourceTree = "<group>"; };
 		0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		0AE5A7481D2B3E1C00212AC3 /* JKUserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKUserAccount.swift; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 				0ACD2BD91D24C33300707EC8 /* Popover */,
 				0A1F2BD31D040053002A03D0 /* JKHomeTableViewController.swift */,
 				0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */,
+				0ADC0B291D3BD400007F5306 /* JKNormalCell.swift */,
+				0ADC0B2B1D3BD419007F5306 /* JKRepostCell.swift */,
 				0A78591A1D39F09B00DA763A /* JKStatusBottomView.swift */,
 				0A7859181D39EFF900DA763A /* JKStatusHeaderView.swift */,
 				0A7859161D39EE8100DA763A /* JKStatusPictureView.swift */,
@@ -572,6 +578,7 @@
 				0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */,
 				0A7859171D39EE8100DA763A /* JKStatusPictureView.swift in Sources */,
 				0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */,
+				0ADC0B2C1D3BD419007F5306 /* JKRepostCell.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,
 				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
 				0AA17EA81D27C4D30029B986 /* JKNetworkTools.swift in Sources */,
@@ -591,6 +598,7 @@
 				0A5DE58E1D370CB0006D4173 /* UIButton+Category.swift in Sources */,
 				0A202B2F1D36390600AAB9CA /* JKStatus.swift in Sources */,
 				0A202B311D3640CC00AAB9CA /* JKUser.swift in Sources */,
+				0ADC0B2A1D3BD400007F5306 /* JKNormalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
