@@ -72,6 +72,9 @@ class JKStatus: NSObject
     // 保存当前微博所有配图的URL
     var storedPicURLS: [NSURL]?
     
+    /// 转发微博
+    var retweeted_status: JKStatus?
+    
     // 用户信息
     var user: JKUser?
     

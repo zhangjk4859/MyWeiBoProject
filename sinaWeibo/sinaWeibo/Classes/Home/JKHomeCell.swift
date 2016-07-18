@@ -10,6 +10,18 @@ import UIKit
 
 let JKPictureViewCellReuseIdentifier = "JKPictureViewCellReuseIdentifier"
 
+enum StatusTableViewCellIdentifier: String
+{
+    case NormalCell = "NormalCell"
+    case RepostCell = "RepostCell"
+    
+
+    static func cellID(status: JKStatus) ->String
+    {
+        return status.retweeted_status != nil ? RepostCell.rawValue : NormalCell.rawValue
+    }
+}
+
 class JKHomeCell: UITableViewCell {
     
     // 保存配图的宽度约束
@@ -23,20 +35,20 @@ class JKHomeCell: UITableViewCell {
         {
         didSet{
             
-            // 设置顶部视图
+            // 顶部视图
             topView.status = status
             
-            // 设置正文
+            // 内容
             contentLabel.text = status?.text
             
-            // 设置配图的尺寸
+            // 图片尺寸
             pictureView.status = status
-            // 1.1根据模型计算配图的尺寸
-            // 注意: 计算尺寸需要用到模型, 所以必须先传递模型
+           
+            //设置图片尺寸
             let size = pictureView.calculateImageSize()
-            // 1.2设置配图的尺寸
             pictureWidthCons?.constant = size.width
             pictureHeightCons?.constant = size.height
+            pictureTopCons?.constant = size.height == 0 ? 0 : 10
             
         }
     }
