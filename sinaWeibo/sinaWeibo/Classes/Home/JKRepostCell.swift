@@ -9,6 +9,17 @@
 import UIKit
 
 class JKRepostCell: JKHomeCell {
+    
+    override var status: JKStatus?
+        {
+        didSet{
+            let name = status?.retweeted_status?.user?.name ?? ""
+            let text = status?.retweeted_status?.text ?? ""
+            forwardLabel.text = name + ": " + text
+        }
+    }
+
+    
 
     override func setupUI() {
         super.setupUI()
