@@ -166,6 +166,13 @@ class JKStatus: NSObject
             return
         }
         
+        // 2.判断是否是转发微博, 如果是就自己处理
+        if "retweeted_status" == key
+        {
+            retweeted_status = JKStatus(dict: value as! [String : AnyObject])
+            return
+        }
+        
         // 3,调用父类方法, 按照系统默认处理
         super.setValue(value, forKey: key)
     }
