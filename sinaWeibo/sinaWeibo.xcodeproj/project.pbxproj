@@ -43,6 +43,8 @@
 		0ACD2BE51D24F9D900707EC8 /* JKQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE31D24F9D900707EC8 /* JKQRCodeVC.swift */; };
 		0ACD2BE81D24FA0800707EC8 /* JKQRCodeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE71D24FA0800707EC8 /* JKQRCodeVC.storyboard */; };
 		0ACD2BEA1D252F4900707EC8 /* JKQRCodeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BE91D252F4900707EC8 /* JKQRCodeCardVC.swift */; };
+		0AD299521D41C8B5004560DF /* JKHomeRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD299511D41C8B5004560DF /* JKHomeRefreshView.xib */; };
+		0AD299541D41CA5E004560DF /* JKHomeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD299531D41CA5E004560DF /* JKHomeRefreshControl.swift */; };
 		0ADC0B2A1D3BD400007F5306 /* JKNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC0B291D3BD400007F5306 /* JKNormalCell.swift */; };
 		0ADC0B2C1D3BD419007F5306 /* JKRepostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC0B2B1D3BD419007F5306 /* JKRepostCell.swift */; };
 		0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE555B21D2286B8009C4E72 /* JKVisitView.swift */; };
@@ -125,6 +127,8 @@
 		0ACD2BE31D24F9D900707EC8 /* JKQRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKQRCodeVC.swift; sourceTree = "<group>"; };
 		0ACD2BE71D24FA0800707EC8 /* JKQRCodeVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JKQRCodeVC.storyboard; sourceTree = "<group>"; };
 		0ACD2BE91D252F4900707EC8 /* JKQRCodeCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKQRCodeCardVC.swift; sourceTree = "<group>"; };
+		0AD299511D41C8B5004560DF /* JKHomeRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKHomeRefreshView.xib; sourceTree = "<group>"; };
+		0AD299531D41CA5E004560DF /* JKHomeRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKHomeRefreshControl.swift; sourceTree = "<group>"; };
 		0ADC0B291D3BD400007F5306 /* JKNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNormalCell.swift; sourceTree = "<group>"; };
 		0ADC0B2B1D3BD419007F5306 /* JKRepostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKRepostCell.swift; sourceTree = "<group>"; };
 		0AE555B21D2286B8009C4E72 /* JKVisitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKVisitView.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				0ACD2BE21D24F95E00707EC8 /* QRCode */,
 				0ACD2BD91D24C33300707EC8 /* Popover */,
 				0A1F2BD31D040053002A03D0 /* JKHomeTableViewController.swift */,
+				0AD299511D41C8B5004560DF /* JKHomeRefreshView.xib */,
+				0AD299531D41CA5E004560DF /* JKHomeRefreshControl.swift */,
 				0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */,
 				0ADC0B291D3BD400007F5306 /* JKNormalCell.swift */,
 				0ADC0B2B1D3BD419007F5306 /* JKRepostCell.swift */,
@@ -491,6 +497,7 @@
 				0ACD2BE81D24FA0800707EC8 /* JKQRCodeVC.storyboard in Resources */,
 				0A1F2BDD1D04175F002A03D0 /* MainVCSettings.json in Resources */,
 				0A1F2BA31D03F425002A03D0 /* Assets.xcassets in Resources */,
+				0AD299521D41C8B5004560DF /* JKHomeRefreshView.xib in Resources */,
 				0ACD2BDD1D24C3A300707EC8 /* JKPopoverViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +590,7 @@
 				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
 				0AA17EA81D27C4D30029B986 /* JKNetworkTools.swift in Sources */,
 				0A7859191D39EFF900DA763A /* JKStatusHeaderView.swift in Sources */,
+				0AD299541D41CA5E004560DF /* JKHomeRefreshControl.swift in Sources */,
 				0A1F2BD81D0400EC002A03D0 /* JKMessageTableViewController.swift in Sources */,
 				0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */,
 				0A6879E21D2D457C003C7309 /* String+Category.swift in Sources */,

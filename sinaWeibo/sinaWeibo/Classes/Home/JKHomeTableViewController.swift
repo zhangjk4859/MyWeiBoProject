@@ -47,6 +47,9 @@ class JKHomeTableViewController: JKBaseViewController
 //        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
+        //添加自定义刷新控件
+        refreshControl = JKHomeRefreshControl()
+        
         // 4.加载微博数据
         loadData()
         
