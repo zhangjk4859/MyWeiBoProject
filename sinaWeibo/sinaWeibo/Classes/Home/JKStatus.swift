@@ -51,40 +51,61 @@ class JKStatus: NSObject
         }
     }
 
-    // 配图数组，第一步，把URL全部放到数组中，第二步，同时把图片缓存到本地
+    /// 配图数组
     var pic_urls: [[String: AnyObject]]?
         {
         didSet{
             // 1.初始化数组
             storedPicURLS = [NSURL]()
+            storedLargePicURLS = [NSURL]()
+            
             // 2遍历取出所有的图片路径字符串
             for dict in pic_urls!
             {
-                if let urlStr = dict["thumbnail_pic"]
+                if let urlStr = dict["thumbnail_pic"] as? String
                 {
-                    // 将字符串转换为URL保存到数组中
-                    storedPicURLS?.append(NSURL(string: urlStr as! String)!)
+                    // 1.将字符串转换为URL保存到数组中
+                    storedPicURLS!.append(NSURL(string: urlStr)!)
+                    
+                    // 2.小图关键字替换成大图
+                    let largeURLStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+                    storedLargePicURLS!.append(NSURL(string: largeURLStr)!)
+                    
                 }
             }
         }
     }
-    
     // 保存当前微博所有配图的URL
     var storedPicURLS: [NSURL]?
+    // 保存当前微博所有大图URL
+    var storedLargePicURLS: [NSURL]?
     
-    /// 转发微博
+    // 是否为转发微博
     var retweeted_status: JKStatus?
     
     // 用户信息
     var user: JKUser?
     
     // 加载微博数据,用blcok回调的方式
-    class func loadStatuses(finished: (models:[JKStatus]?, error:NSError?)->()){
+    class func loadStatuses(since_id: Int, max_id: Int,finished: (models:[JKStatus]?, error:NSError?)->()){
         let path = "2/statuses/home_timeline.json"
-        let params = ["access_token": JKUserAccount.loadAccount()!.access_token!]
+        var params = ["access_token": JKUserAccount.loadAccount()!.access_token!]
+        
+        // 下拉刷新
+        if since_id > 0
+        {
+            params["since_id"] = "\(since_id)"
+        }
+        
+        // 上拉刷新
+        if max_id > 0
+        {
+            params["max_id"] = "\(max_id - 1)"
+        }
+
         
         JKNetworkTools.shareNetworkTools().GET(path, parameters: params, success: { (_, JSON) -> Void in
-            //            print(JSON)
+    
             // 1.取出statuses key对应的数组 (存储的都是字典)
             // 2.遍历数组, 将字典转换为模型
             let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])

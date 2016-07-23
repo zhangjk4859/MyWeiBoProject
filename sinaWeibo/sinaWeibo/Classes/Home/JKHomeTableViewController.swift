@@ -60,12 +60,19 @@ class JKHomeTableViewController: JKBaseViewController
     
     //获取新数据，方法称为公用，加objc或者去掉private
     @objc private func loadData()
-        
     {
+        // 1.默认当做下拉处理
+        var since_id = statuses?.first?.id ?? 0
         
-        let since_id = statuses?.first?.id ?? 0
+        var max_id = 0
+        // 2.判断是否是上拉
+        if pullupRefreshFlag
+        {
+            since_id = 0
+            max_id = statuses?.last?.id ?? 0
+        }
         
-        JKStatus.loadStatuses { (models, error) -> () in
+        JKStatus.loadStatuses(since_id, max_id: max_id) { (models, error) -> () in
             
             // 接收刷新
             self.refreshControl?.endRefreshing()
@@ -74,7 +81,6 @@ class JKHomeTableViewController: JKBaseViewController
             {
                 return
             }
-            
             // 下拉刷新
             if since_id > 0
             {
@@ -83,11 +89,15 @@ class JKHomeTableViewController: JKBaseViewController
                 
                 // 显示刷新提醒
                 self.showNewStatusCount(models?.count ?? 0)
-            }else
+            }else if max_id > 0
+            {
+                // 如果是上拉加载更多, 就将获取到的数据, 拼接在原有数据的后面
+                self.statuses = self.statuses! + models!
+            }
+            else
             {
                 self.statuses = models
             }
-            
         }
     }
     
@@ -129,8 +139,9 @@ class JKHomeTableViewController: JKBaseViewController
             return label
     }()
     
+    // 记录是上拉加载还是下拉刷新
+    var pullupRefreshFlag = false
 
-    
     
     //从自身移除通知
     deinit{
@@ -241,6 +252,15 @@ extension JKHomeTableViewController
         let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status), forIndexPath: indexPath) as! JKHomeCell
         // 2.设置数据
         cell.status = status
+        
+        // 4.判断是否滚动到了最后一个cell
+        let count = statuses?.count ?? 0
+        if indexPath.row == (count - 1)
+        {
+            pullupRefreshFlag = true
+            loadData()
+        }
+
         
         // 3.返回cell
         return cell

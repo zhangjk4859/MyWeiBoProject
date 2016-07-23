@@ -10,6 +10,8 @@ import UIKit
 import SDWebImage
 
 class JKStatusPictureView: UICollectionView {
+    
+    //设置添加数据
     var status: JKStatus?
         {
         didSet{
@@ -18,6 +20,7 @@ class JKStatusPictureView: UICollectionView {
         }
     }
     
+    //设置布局属性
     private var pictureLayout: UICollectionViewFlowLayout =  UICollectionViewFlowLayout()
     init()
     {
@@ -38,9 +41,8 @@ class JKStatusPictureView: UICollectionView {
     }
     
     
-    /**
-     计算配图的尺寸
-     */
+    
+     //计算图片的尺寸
     func calculateImageSize() -> CGSize
     {
         // 取出配图个数
@@ -128,6 +130,7 @@ extension JKStatusPictureView: UICollectionViewDataSource
         return status?.storedPicURLS?.count ?? 0
     }
     
+    //collectionView返回cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         // 1.取出cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(JKPictureViewCellReuseIdentifier, forIndexPath: indexPath) as! PictureViewCell
@@ -137,6 +140,14 @@ extension JKStatusPictureView: UICollectionViewDataSource
         
         // 3.返回cell
         return cell
+    }
+    
+    //图片点击事件
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //        print(indexPath.item)
+        print(status?.storedLargePicURLS![indexPath.item])
+        
+        
     }
     
 }
