@@ -49,6 +49,7 @@ class JKHomeTableViewController: JKBaseViewController
         
         //添加自定义刷新控件
         refreshControl = JKHomeRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(loadData), forControlEvents: UIControlEvents.ValueChanged)
         
         // 4.加载微博数据
         loadData()
@@ -57,20 +58,77 @@ class JKHomeTableViewController: JKBaseViewController
         
     }
     
-    /**
-     获取微博数据
-     */
-    private func loadData()
+    //获取新数据，方法称为公用，加objc或者去掉private
+    @objc private func loadData()
+        
     {
+        
+        let since_id = statuses?.first?.id ?? 0
+        
         JKStatus.loadStatuses { (models, error) -> () in
+            
+            // 接收刷新
+            self.refreshControl?.endRefreshing()
             
             if error != nil
             {
                 return
             }
-            self.statuses = models
+            
+            // 下拉刷新
+            if since_id > 0
+            {
+                // 如果是下拉刷新, 就将获取到的数据, 拼接在原有数据的前面
+                self.statuses = models! + self.statuses!
+                
+                // 显示刷新提醒
+                self.showNewStatusCount(models?.count ?? 0)
+            }else
+            {
+                self.statuses = models
+            }
+            
         }
     }
+    
+    
+    //弹出来的橙色view提醒用户刷新了几条新数据
+    private func showNewStatusCount(count : Int)
+    {
+        newStatusLabel.hidden = false
+        newStatusLabel.text = (count == 0) ? "没有新数据" : "\(count)条新数据"
+        
+        
+        UIView.animateWithDuration(2, animations: { () -> Void in
+            self.newStatusLabel.transform = CGAffineTransformMakeTranslation(0, self.newStatusLabel.frame.height)
+            
+        }) { (_) -> Void in
+            UIView.animateWithDuration(2, animations: { () -> Void in
+                self.newStatusLabel.transform = CGAffineTransformIdentity
+                }, completion: { (_) -> Void in
+                    self.newStatusLabel.hidden = true
+            })
+        }
+    }
+
+    // 创建一个懒加载刷新提醒控件
+    private lazy var newStatusLabel: UILabel =
+        {
+            let label = UILabel()
+            let height: CGFloat = 44
+            label.frame =  CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: height)
+            
+            label.backgroundColor = UIColor.orangeColor()
+            label.textColor = UIColor.whiteColor()
+            label.textAlignment = NSTextAlignment.Center
+            
+            //加到导航条下面，不会随着tableView滚动
+            self.navigationController?.navigationBar.insertSubview(label, atIndex: 0)
+            
+            label.hidden = true
+            return label
+    }()
+    
 
     
     
