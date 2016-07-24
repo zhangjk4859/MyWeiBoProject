@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A03E6CE1D315637004B74FC /* JKWelcomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A03E6CD1D315637004B74FC /* JKWelcomVC.swift */; };
+		0A0E1C901D45183F00EB9D6A /* JKPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E1C8F1D45183F00EB9D6A /* JKPictureVC.swift */; };
 		0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F2B9B1D03F425002A03D0 /* AppDelegate.swift */; };
 		0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F2B9D1D03F425002A03D0 /* ViewController.swift */; };
 		0A1F2BA31D03F425002A03D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1F2BA21D03F425002A03D0 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		0A03E6CD1D315637004B74FC /* JKWelcomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKWelcomVC.swift; sourceTree = "<group>"; };
+		0A0E1C8F1D45183F00EB9D6A /* JKPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPictureVC.swift; sourceTree = "<group>"; };
 		0A1F2B981D03F425002A03D0 /* sinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1F2B9B1D03F425002A03D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A1F2B9D1D03F425002A03D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0E1C8E1D45182500EB9D6A /* 图片控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				0A0E1C8F1D45183F00EB9D6A /* JKPictureVC.swift */,
+			);
+			path = "图片控制器";
+			sourceTree = "<group>";
+		};
 		0A1F2B8F1D03F425002A03D0 = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +268,7 @@
 		0A1F2BCC1D03FF1D002A03D0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0A0E1C8E1D45182500EB9D6A /* 图片控制器 */,
 				0ACD2BE21D24F95E00707EC8 /* QRCode */,
 				0ACD2BD91D24C33300707EC8 /* Popover */,
 				0A1F2BD31D040053002A03D0 /* JKHomeTableViewController.swift */,
@@ -600,6 +611,7 @@
 				0A5DE5901D370CC9006D4173 /* UILabel+Category.swift in Sources */,
 				0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */,
 				0ACD2BE11D24EC3F00707EC8 /* JKPopoverAnimator.swift in Sources */,
+				0A0E1C901D45183F00EB9D6A /* JKPictureVC.swift in Sources */,
 				0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */,
 				0A1F2BDA1D0400FB002A03D0 /* JKProfileTableViewController.swift in Sources */,
 				0AE5A7491D2B3E1C00212AC3 /* JKUserAccount.swift in Sources */,
