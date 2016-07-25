@@ -33,6 +33,8 @@
 		0A8425A31D2A6D210039E6C0 /* (null) in CopyFiles */ = {isa = PBXBuildFile; };
 		0A8425A41D2A6DBF0039E6C0 /* Pods.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 34C32B116F4906E0434478FC /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A8B18941D26096A00AD873E /* JKOAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B18931D26096A00AD873E /* JKOAuthVC.swift */; };
+		0A9A5A011D462B8F008410F6 /* JKPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A5A001D462B8F008410F6 /* JKPhotoBrowserCell.swift */; };
+		0A9A5A031D462DF6008410F6 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A5A021D462DF6008410F6 /* UIColor+Category.swift */; };
 		0AA17EA81D27C4D30029B986 /* JKNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */; };
 		0AAB1FEC1D3674B000193D7E /* JKHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */; };
 		0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */; };
@@ -118,6 +120,8 @@
 		0A7859181D39EFF900DA763A /* JKStatusHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKStatusHeaderView.swift; sourceTree = "<group>"; };
 		0A78591A1D39F09B00DA763A /* JKStatusBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKStatusBottomView.swift; sourceTree = "<group>"; };
 		0A8B18931D26096A00AD873E /* JKOAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKOAuthVC.swift; sourceTree = "<group>"; };
+		0A9A5A001D462B8F008410F6 /* JKPhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPhotoBrowserCell.swift; sourceTree = "<group>"; };
+		0A9A5A021D462DF6008410F6 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNetworkTools.swift; sourceTree = "<group>"; };
 		0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKHomeCell.swift; sourceTree = "<group>"; };
 		0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Category.swift"; path = "sinaWeibo/Classes/Tools/UIBarButtonItem+Category.swift"; sourceTree = SOURCE_ROOT; };
@@ -173,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				0A0E1C8F1D45183F00EB9D6A /* JKPictureVC.swift */,
+				0A9A5A001D462B8F008410F6 /* JKPhotoBrowserCell.swift */,
 			);
 			path = "图片控制器";
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				0AE555B61D228FE6009C4E72 /* UIView+AutoLayout.swift */,
 				0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */,
 				0A6879E11D2D457C003C7309 /* String+Category.swift */,
+				0A9A5A021D462DF6008410F6 /* UIColor+Category.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -596,6 +602,8 @@
 				0A1F2B9C1D03F425002A03D0 /* AppDelegate.swift in Sources */,
 				0A7859171D39EE8100DA763A /* JKStatusPictureView.swift in Sources */,
 				0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */,
+				0A9A5A011D462B8F008410F6 /* JKPhotoBrowserCell.swift in Sources */,
+				0A9A5A031D462DF6008410F6 /* UIColor+Category.swift in Sources */,
 				0ADC0B2C1D3BD419007F5306 /* JKRepostCell.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,
 				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
