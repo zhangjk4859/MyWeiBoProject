@@ -38,6 +38,7 @@ class JKHomeTableViewController: JKBaseViewController
         //注册通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(change), name: animatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(change), name: animatorWillDismiss, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(JKHomeTableViewController.showPictureVC(_:)), name: JKStatusPictureViewSelected, object: nil)
         
         // 注册两个cell
         tableView.registerClass(JKNormalCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
@@ -57,6 +58,35 @@ class JKHomeTableViewController: JKBaseViewController
         
         
     }
+    
+    /**
+     显示图片浏览器
+     */
+    func showPictureVC(notify: NSNotification)
+    {
+        //        print(notify.userInfo)
+        // 注意: 如果通过通知传递数据, 一定要判断数据是否存在
+        guard let indexPath = notify.userInfo![JKStatusPictureViewIndexKey] as? NSIndexPath else
+        {
+            print("没有indexPath")
+            return
+        }
+        
+        guard let urls = notify.userInfo![JKStatusPictureViewURLsKey] as? [NSURL] else
+        {
+            print("没有配图")
+            return
+        }
+        
+        // 1.创建图片浏览器
+        let vc = JKPictureVC(index: indexPath.item, urls: urls)
+        
+        // 2.显示图片浏览器
+        presentViewController(vc, animated: true, completion: nil)
+    }
+
+    
+    
     
     //获取新数据，方法称为公用，加objc或者去掉private
     @objc private func loadData()
