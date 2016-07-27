@@ -8,6 +8,8 @@
 
 import UIKit
 
+import KILabel
+
 let JKPictureViewCellReuseIdentifier = "JKPictureViewCellReuseIdentifier"
 
 enum StatusTableViewCellIdentifier: String
@@ -39,7 +41,8 @@ class JKHomeCell: UITableViewCell {
             topView.status = status
             
             // 内容
-            contentLabel.text = status?.text
+            //contentLabel.text = status?.text
+            contentLabel.attributedText = EmoticonPackage.emoticonString(status?.text ?? "")
             
             // 图片尺寸
             pictureView.status = status
@@ -104,11 +107,26 @@ class JKHomeCell: UITableViewCell {
     private lazy var topView: JKStatusHeaderView = JKStatusHeaderView()
     
     // 正文
-     lazy var contentLabel: UILabel =
+     lazy var contentLabel: UILabel = KILabel
         {
-            let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
+//            let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
+//            label.numberOfLines = 0
+//            label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
+//            return label
+            
+            let label =
+            label.textColor = UIColor.darkGrayColor()
+            label.font = UIFont.systemFontOfSize(15)
             label.numberOfLines = 0
             label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
+            
+            // 监听URL
+            label.urlLinkTapHandler =  {
+                (label, string, range)
+                in
+                print(string)
+            }
+            
             return label
     }()
     
