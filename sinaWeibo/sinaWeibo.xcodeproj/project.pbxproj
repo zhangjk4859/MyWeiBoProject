@@ -37,6 +37,14 @@
 		0A9A5A031D462DF6008410F6 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A5A021D462DF6008410F6 /* UIColor+Category.swift */; };
 		0AA17EA81D27C4D30029B986 /* JKNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */; };
 		0AAB1FEC1D3674B000193D7E /* JKHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */; };
+		0ABA21911D48B9CA00D49718 /* JKComposeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA21901D48B9CA00D49718 /* JKComposeVC.swift */; };
+		0ABA21931D48BE6B00D49718 /* JKPhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA21921D48BE6B00D49718 /* JKPhotoSelectorVC.swift */; };
+		0ABA21951D48BE8400D49718 /* UIImage+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA21941D48BE8400D49718 /* UIImage+Category.swift */; };
+		0ABA219B1D48C08000D49718 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA21961D48C08000D49718 /* EmoticonPackage.swift */; };
+		0ABA219C1D48C08000D49718 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA21971D48C08000D49718 /* Emoticons.bundle */; };
+		0ABA219D1D48C08000D49718 /* EmoticonTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA21981D48C08000D49718 /* EmoticonTextAttachment.swift */; };
+		0ABA219E1D48C08000D49718 /* EmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA21991D48C08000D49718 /* EmoticonViewController.swift */; };
+		0ABA219F1D48C08000D49718 /* UITextView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA219A1D48C08000D49718 /* UITextView+Category.swift */; };
 		0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */; };
 		0ACD2BD81D24B77800707EC8 /* JKTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */; };
 		0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */; };
@@ -124,6 +132,14 @@
 		0A9A5A021D462DF6008410F6 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		0AA17EA71D27C4D30029B986 /* JKNetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNetworkTools.swift; sourceTree = "<group>"; };
 		0AAB1FEB1D3674B000193D7E /* JKHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKHomeCell.swift; sourceTree = "<group>"; };
+		0ABA21901D48B9CA00D49718 /* JKComposeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKComposeVC.swift; sourceTree = "<group>"; };
+		0ABA21921D48BE6B00D49718 /* JKPhotoSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPhotoSelectorVC.swift; sourceTree = "<group>"; };
+		0ABA21941D48BE8400D49718 /* UIImage+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Category.swift"; sourceTree = "<group>"; };
+		0ABA21961D48C08000D49718 /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
+		0ABA21971D48C08000D49718 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		0ABA21981D48C08000D49718 /* EmoticonTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonTextAttachment.swift; sourceTree = "<group>"; };
+		0ABA21991D48C08000D49718 /* EmoticonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonViewController.swift; sourceTree = "<group>"; };
+		0ABA219A1D48C08000D49718 /* UITextView+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Category.swift"; sourceTree = "<group>"; };
 		0ACD2BD51D24B1A400707EC8 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Category.swift"; path = "sinaWeibo/Classes/Tools/UIBarButtonItem+Category.swift"; sourceTree = SOURCE_ROOT; };
 		0ACD2BD71D24B77800707EC8 /* JKTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JKTitleButton.swift; path = sinaWeibo/Classes/Tools/JKTitleButton.swift; sourceTree = SOURCE_ROOT; };
 		0ACD2BDA1D24C37500707EC8 /* JKPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPopoverViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +253,7 @@
 		0A1F2BC91D03FF1D002A03D0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0ABA218D1D48B96F00D49718 /* Compose */,
 				0AED93151D2E4D1300EC0896 /* NewFeatureController */,
 				0A8B18921D26094E00AD873E /* OAuth */,
 				0A1F2BCD1D03FF1D002A03D0 /* Main */,
@@ -345,6 +362,37 @@
 				0AE5A7481D2B3E1C00212AC3 /* JKUserAccount.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		0ABA218D1D48B96F00D49718 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				0ABA218E1D48B9AC00D49718 /* 表情选择器 */,
+				0ABA218F1D48B9AC00D49718 /* 照片选择器 */,
+				0ABA21901D48B9CA00D49718 /* JKComposeVC.swift */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		0ABA218E1D48B9AC00D49718 /* 表情选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				0ABA21961D48C08000D49718 /* EmoticonPackage.swift */,
+				0ABA21971D48C08000D49718 /* Emoticons.bundle */,
+				0ABA21981D48C08000D49718 /* EmoticonTextAttachment.swift */,
+				0ABA21991D48C08000D49718 /* EmoticonViewController.swift */,
+				0ABA219A1D48C08000D49718 /* UITextView+Category.swift */,
+			);
+			path = "表情选择器";
+			sourceTree = "<group>";
+		};
+		0ABA218F1D48B9AC00D49718 /* 照片选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				0ABA21921D48BE6B00D49718 /* JKPhotoSelectorVC.swift */,
+				0ABA21941D48BE8400D49718 /* UIImage+Category.swift */,
+			);
+			path = "照片选择器";
 			sourceTree = "<group>";
 		};
 		0ACD2BD91D24C33300707EC8 /* Popover */ = {
@@ -512,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACD2BE81D24FA0800707EC8 /* JKQRCodeVC.storyboard in Resources */,
+				0ABA219C1D48C08000D49718 /* Emoticons.bundle in Resources */,
 				0A1F2BDD1D04175F002A03D0 /* MainVCSettings.json in Resources */,
 				0A1F2BA31D03F425002A03D0 /* Assets.xcassets in Resources */,
 				0AD299521D41C8B5004560DF /* JKHomeRefreshView.xib in Resources */,
@@ -588,14 +637,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ABA21911D48B9CA00D49718 /* JKComposeVC.swift in Sources */,
+				0ABA219F1D48C08000D49718 /* UITextView+Category.swift in Sources */,
 				0AAB1FEC1D3674B000193D7E /* JKHomeCell.swift in Sources */,
 				0A1F2BD21D03FFFA002A03D0 /* JKTabBarController.swift in Sources */,
+				0ABA21951D48BE8400D49718 /* UIImage+Category.swift in Sources */,
 				0AF78D541D3740E000DD2662 /* NSDate+Category.swift in Sources */,
 				0A78591B1D39F09B00DA763A /* JKStatusBottomView.swift in Sources */,
 				0AE555B71D228FE6009C4E72 /* UIView+AutoLayout.swift in Sources */,
 				0A1F2B9E1D03F425002A03D0 /* ViewController.swift in Sources */,
 				0ACD2BDF1D24C51900707EC8 /* JKPopoverPC.swift in Sources */,
 				0ACD2BE51D24F9D900707EC8 /* JKQRCodeVC.swift in Sources */,
+				0ABA219E1D48C08000D49718 /* EmoticonViewController.swift in Sources */,
 				0AED93171D2E4D6D00EC0896 /* JKNewfeatureVC.swift in Sources */,
 				0ACD2BEA1D252F4900707EC8 /* JKQRCodeCardVC.swift in Sources */,
 				0A8B18941D26096A00AD873E /* JKOAuthVC.swift in Sources */,
@@ -606,15 +659,18 @@
 				0A9A5A031D462DF6008410F6 /* UIColor+Category.swift in Sources */,
 				0ADC0B2C1D3BD419007F5306 /* JKRepostCell.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,
+				0ABA21931D48BE6B00D49718 /* JKPhotoSelectorVC.swift in Sources */,
 				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
 				0AA17EA81D27C4D30029B986 /* JKNetworkTools.swift in Sources */,
 				0A7859191D39EFF900DA763A /* JKStatusHeaderView.swift in Sources */,
 				0AD299541D41CA5E004560DF /* JKHomeRefreshControl.swift in Sources */,
 				0A1F2BD81D0400EC002A03D0 /* JKMessageTableViewController.swift in Sources */,
 				0ACD2BD61D24B1A400707EC8 /* UIBarButtonItem+Category.swift in Sources */,
+				0ABA219B1D48C08000D49718 /* EmoticonPackage.swift in Sources */,
 				0A6879E21D2D457C003C7309 /* String+Category.swift in Sources */,
 				0A03E6CE1D315637004B74FC /* JKWelcomVC.swift in Sources */,
 				0AE555B31D2286B8009C4E72 /* JKVisitView.swift in Sources */,
+				0ABA219D1D48C08000D49718 /* EmoticonTextAttachment.swift in Sources */,
 				0A1F2BD41D040053002A03D0 /* JKHomeTableViewController.swift in Sources */,
 				0A5DE5901D370CC9006D4173 /* UILabel+Category.swift in Sources */,
 				0ACD2BDB1D24C37500707EC8 /* JKPopoverViewController.swift in Sources */,

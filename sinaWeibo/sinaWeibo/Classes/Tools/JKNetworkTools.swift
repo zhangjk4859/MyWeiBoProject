@@ -26,5 +26,41 @@ class JKNetworkTools: AFHTTPSessionManager {
    class func shareNetworkTools() -> JKNetworkTools{
         return tools
     }
+    
+    //封装网络方法，降低耦合性
+    func sendStatus(text: String, image: UIImage?, successCallback: (status: JKStatus)->(), errorCallback: (error: NSError)->())
+    {
+        var path = "2/statuses/"
+        let params = ["access_token":JKUserAccount.loadAccount()!.access_token! , "status": text]
+        if image != nil
+        {
+            // 发送图片微博
+            path += "upload.json"
+            POST(path, parameters: params, constructingBodyWithBlock: { (formData) -> Void in
+    
+                let data = UIImagePNGRepresentation(image!)!
+                
+                formData.appendPartWithFileData(data
+                    , name:"pic", fileName:"abc.png", mimeType:"application/octet-stream");
+                
+                }, success: { (_, JSON) -> Void in
+                    successCallback(status: JKStatus(dict: JSON as! [String : AnyObject]))
+                }, failure: { (_, error) -> Void in
+                    errorCallback(error: error)
+            })
+        }else
+        {
+            // 发送文字微博
+            path += "update.json"
+            POST(path, parameters: params, success: { (_, JSON) -> Void in
+                successCallback(status: JKStatus(dict: JSON as! [String : AnyObject]))
+            }) { (_, error) -> Void in
+                errorCallback(error: error)
+            }
+        }
+        
+    }
+
+    
 
 }

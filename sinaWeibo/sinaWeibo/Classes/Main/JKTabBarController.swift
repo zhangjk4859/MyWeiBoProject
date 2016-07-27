@@ -65,11 +65,15 @@ class JKTabBarController: UITabBarController
     
     
     
-    //按钮点击事件,不能为私有方法
-   func plusBtnClick(){
+    //这里弹出发微博控制器
+   func plusBtnClick()
+   {
     
-    print(#function )
-    }
+    let vc = JKComposeVC()
+    let nav = UINavigationController(rootViewController: vc)
+    presentViewController(nav, animated: true, completion: nil)
+    
+   }
     
     //定义一个方法，添加中间的按钮
     private func setupPlusBtn(){
