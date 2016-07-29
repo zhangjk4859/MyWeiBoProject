@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KILabel
 
 class JKRepostCell: JKHomeCell {
     
@@ -21,12 +22,14 @@ class JKRepostCell: JKHomeCell {
             forwardLabel.attributedText = EmoticonPackage.emoticonString("@" + name + ": " + text)
         }
     }
-    
+    //父类的设置子视图方法，重写
     override func setupUI() {
         super.setupUI()
         
-        // 1.添加子控件
+        //1.添加子控件
+        //1.1按钮在配图下面
         contentView.insertSubview(forwardButton, belowSubview: pictureView)
+        //1.2正文在按钮上面
         contentView.insertSubview(forwardLabel, aboveSubview: forwardButton)
         
         // 2.布局子控件
@@ -39,8 +42,9 @@ class JKRepostCell: JKHomeCell {
         forwardLabel.text = "fjdskljflkdsjflksdjlkfdsjlfjdslfjlkds"
         forwardLabel.jk_AlignInner(type: JK_AlignType.TopLeft, referView: forwardButton, size: nil, offset: CGPoint(x: 10, y: 10))
         
-        // 2.3重新调整转发配图的位置
+        // 2.3重新调整转发配图的位置，配图放到转发的正文下面
         let cons = pictureView.jk_AlignVertical(type: JK_AlignType.BottomLeft, referView: forwardLabel, size: CGSize(width: 290, height: 290), offset: CGPoint(x: 0, y: 10))
+
         
         pictureWidthCons = pictureView.jk_Constraint(cons, attribute: NSLayoutAttribute.Width)
         pictureHeightCons =  pictureView.jk_Constraint(cons, attribute: NSLayoutAttribute.Height)
@@ -49,13 +53,52 @@ class JKRepostCell: JKHomeCell {
     }
     
     // MARK: - 懒加载
+    //转发内容label显示正文
+//    private lazy var forwardLabel: UILabel = {
+//        let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
+//        label.numberOfLines = 0
+//        label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
+//        return label
+//    }()
     private lazy var forwardLabel: UILabel = {
-        let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
-        label.numberOfLines = 0
-        label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
-        return label
+                    let label = KILabel()
+                    label.textColor = UIColor.darkGrayColor()
+                    label.font = UIFont.systemFontOfSize(15)
+                    label.numberOfLines = 0
+                    label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
+        
+                    // 监听URL
+                    label.urlLinkTapHandler =  {
+                        (label, string, range)
+                        in
+                        print(string)
+                    }
+                    
+                    return label
     }()
     
+    
+//    lazy var contentLabel: KILabel =
+//        {
+//            
+//            let label = KILabel()
+//            label.textColor = UIColor.darkGrayColor()
+//            label.font = UIFont.systemFontOfSize(15)
+//            label.numberOfLines = 0
+//            label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
+//            
+//            // 监听URL
+//            label.urlLinkTapHandler =  {
+//                (label, string, range)
+//                in
+//                print(string)
+//            }
+//            
+//            return label
+//    }()
+    
+    
+    //整个cell是一个button，可以点击
     private lazy var forwardButton: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor(white: 0.9, alpha: 1.0)

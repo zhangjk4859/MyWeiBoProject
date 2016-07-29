@@ -44,8 +44,9 @@ class JKHomeCell: UITableViewCell {
             // 内容
             //contentLabel.text = status?.text
             contentLabel.attributedText = EmoticonPackage.emoticonString(status?.text ?? "")
-            // 图片尺寸
-            pictureView.status = status
+            
+            // 设置配图的尺寸，注意有原创和转发的区别
+            pictureView.status = status?.retweeted_status != nil ? status?.retweeted_status :  status
            
            
             //设置图片尺寸
