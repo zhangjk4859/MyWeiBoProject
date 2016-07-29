@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        //1.程序启动时启动数据库，用来缓存微博
+        JKSQLiteManager.shareManager().openDB("status.sqlite")
+        
         //程序一进来就设置全局外观
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
         UITabBar.appearance().tintColor = UIColor.orangeColor()
@@ -81,5 +84,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
 
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        print(#function)
+        // 进入后台以后，清除一分钟以前缓存的数据
+        JKStatusDAO.cleanStatuses()
+    }
 }
 

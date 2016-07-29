@@ -10,22 +10,22 @@ import UIKit
 
 class JKRepostCell: JKHomeCell {
     
+    
+
     override var status: JKStatus?
         {
         didSet{
             let name = status?.retweeted_status?.user?.name ?? ""
             let text = status?.retweeted_status?.text ?? ""
-            forwardLabel.text = name + ": " + text
+            
+            forwardLabel.attributedText = EmoticonPackage.emoticonString("@" + name + ": " + text)
         }
     }
-
     
-
     override func setupUI() {
         super.setupUI()
         
         // 1.添加子控件
-        //        contentView.addSubview(forwardButton)
         contentView.insertSubview(forwardButton, belowSubview: pictureView)
         contentView.insertSubview(forwardLabel, aboveSubview: forwardButton)
         
@@ -62,5 +62,5 @@ class JKRepostCell: JKHomeCell {
         return btn
     }()
 
-
+    
 }

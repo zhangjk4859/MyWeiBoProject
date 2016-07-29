@@ -9,17 +9,20 @@
 import UIKit
 import SDWebImage
 
-class JKStatusPictureView: UICollectionView {
+class JKStatusPictureView: UICollectionView
+{
     
+    //设置数据源 属性的set方法
     var status: JKStatus?
+    {
+        didSet
         {
-        didSet{
             // 1. 刷新表格
             reloadData()
         }
     }
     
-    private var pictureLayout: UICollectionViewFlowLayout =  UICollectionViewFlowLayout()
+    //collectionView 初始化布局
     init()
     {
         super.init(frame: CGRectZero, collectionViewLayout: pictureLayout)
@@ -85,12 +88,19 @@ class JKStatusPictureView: UICollectionView {
         return CGSize(width: viewWidth, height: viewHeight)
     }
     
+    //MARK -- 懒加载
+    //布局方法
+    private var pictureLayout: UICollectionViewFlowLayout =  UICollectionViewFlowLayout()
+    
+    //必须无用代码
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    private class PictureViewCell: UICollectionViewCell {
+    //内部使用的cell，一个独立的类，可以放出去
+    private class PictureViewCell: UICollectionViewCell
+    {
         
         // 定义属性接收外界传入的数据
         var imageURL: NSURL?
@@ -106,12 +116,15 @@ class JKStatusPictureView: UICollectionView {
             }
         }
         
-        override init(frame: CGRect) {
+        override init(frame: CGRect)
+        {
             super.init(frame: frame)
             // 初始化UI
             setupUI()
         }
         
+        
+        //添加子控件
         private func setupUI()
         {
             // 1.添加子控件
@@ -123,7 +136,7 @@ class JKStatusPictureView: UICollectionView {
             gifImageView.jk_AlignInner(type: JK_AlignType.BottomRight, referView: iconImageView, size: nil)
         }
         
-        // MARK: - 懒加载
+        // MARK: - 懒加载 两个控件
         private lazy var iconImageView:UIImageView = UIImageView()
         private lazy var gifImageView: UIImageView = {
             let iv = UIImageView(image: UIImage(named: "avatar_vgirl"))
@@ -131,10 +144,13 @@ class JKStatusPictureView: UICollectionView {
             return iv
         }()
         
-        required init?(coder aDecoder: NSCoder) {
+        required init?(coder aDecoder: NSCoder)
+        {
             fatalError("init(coder:) has not been implemented")
         }
     }
+    
+    
     
 }
 
@@ -147,7 +163,7 @@ let JKStatusPictureViewIndexKey = "JKStatusPictureViewIndexKey"
 //需要展示的所有图片对应的key
 let JKStatusPictureViewURLsKey = "JKStatusPictureViewURLsKey"
 
-
+//数据源代理方法
 extension JKStatusPictureView: UICollectionViewDataSource, UICollectionViewDelegate
 {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -177,3 +193,7 @@ extension JKStatusPictureView: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
 }
+
+
+
+

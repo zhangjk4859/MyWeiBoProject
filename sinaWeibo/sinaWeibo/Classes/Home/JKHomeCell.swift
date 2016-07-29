@@ -10,6 +10,7 @@ import UIKit
 
 import KILabel
 
+//图片视图类cell的重用标识
 let JKPictureViewCellReuseIdentifier = "JKPictureViewCellReuseIdentifier"
 
 enum StatusTableViewCellIdentifier: String
@@ -37,21 +38,23 @@ class JKHomeCell: UITableViewCell {
         {
         didSet{
             
-            // 顶部视图
+            // 顶部视图设置数据
             topView.status = status
             
             // 内容
             //contentLabel.text = status?.text
             contentLabel.attributedText = EmoticonPackage.emoticonString(status?.text ?? "")
-            
             // 图片尺寸
             pictureView.status = status
+           
            
             //设置图片尺寸
             let size = pictureView.calculateImageSize()
             pictureWidthCons?.constant = size.width
             pictureHeightCons?.constant = size.height
             pictureTopCons?.constant = size.height == 0 ? 0 : 10
+            
+            
             
         }
     }
@@ -77,12 +80,7 @@ class JKHomeCell: UITableViewCell {
         topView.jk_AlignInner(type: JK_AlignType.TopLeft, referView: contentView, size: CGSize(width: width, height: 60))
         
         contentLabel.jk_AlignVertical(type: JK_AlignType.BottomLeft, referView: topView, size: nil, offset: CGPoint(x: 10, y: 10))
-        
-//        let cons = pictureView.jk_AlignVertical(type: JK_AlignType.BottomLeft, referView: contentLabel, size: CGSizeZero, offset: CGPoint(x: 0, y: 10))
-//        
-//        pictureWidthCons = pictureView.jk_Constraint(cons, attribute: NSLayoutAttribute.Width)
-//        pictureHeightCons =  pictureView.jk_Constraint(cons, attribute: NSLayoutAttribute.Height)
-        
+ 
         footerView.jk_AlignVertical(type: JK_AlignType.BottomLeft, referView: pictureView, size: CGSize(width: width, height: 44), offset: CGPoint(x: -10, y: 10))
         
     }
@@ -106,15 +104,11 @@ class JKHomeCell: UITableViewCell {
     // 顶部视图
     private lazy var topView: JKStatusHeaderView = JKStatusHeaderView()
     
-    // 正文
-     lazy var contentLabel: UILabel = KILabel
+    // 正文,公开属性
+    lazy var contentLabel: KILabel =
         {
-//            let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
-//            label.numberOfLines = 0
-//            label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
-//            return label
             
-            let label =
+            let label = KILabel()
             label.textColor = UIColor.darkGrayColor()
             label.font = UIFont.systemFontOfSize(15)
             label.numberOfLines = 0

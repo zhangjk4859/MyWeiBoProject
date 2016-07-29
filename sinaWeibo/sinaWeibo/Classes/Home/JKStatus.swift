@@ -88,43 +88,29 @@ class JKStatus: NSObject
     
     // 加载微博数据,用blcok回调的方式
     class func loadStatuses(since_id: Int, max_id: Int,finished: (models:[JKStatus]?, error:NSError?)->()){
-        let path = "2/statuses/home_timeline.json"
-        var params = ["access_token": JKUserAccount.loadAccount()!.access_token!]
         
-        // 下拉刷新
-        if since_id > 0
-        {
-            params["since_id"] = "\(since_id)"
-        }
-        
-        // 上拉刷新
-        if max_id > 0
-        {
-            params["max_id"] = "\(max_id - 1)"
-        }
-
-        
-        JKNetworkTools.shareNetworkTools().GET(path, parameters: params, success: { (_, JSON) -> Void in
-    
-            // 1.取出statuses key对应的数组 (存储的都是字典)
+        JKStatusDAO.loadStatuses(since_id, max_id: max_id) { (array, error) -> () in
+            
+            if array == nil
+            {
+                finished(models: nil, error: error)
+            }
+            
+            if error != nil
+            {
+                finished(models: nil, error: error)
+            }
+            
             // 2.遍历数组, 将字典转换为模型
-            let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
-                        //print(models)
+            let models = dict2Model(array!)
             
             // 3.缓存微博配图
             cacheStatusImages(models, finished: finished)
-            
-//            // 2.通过闭包将数据传递给调用者
-//            finished(models: models, error: nil)
-            
-        }) { (_, error) -> Void in
-            print(error)
-            finished(models: nil, error: error)
-            
         }
+        
     }
     
-    //类方法调用类方法
+    //类方法调用类方法,缓存图片
     class func cacheStatusImages(list: [JKStatus], finished: (models:[JKStatus]?, error:NSError?)->()) {
         
         // 1.创建一个组
