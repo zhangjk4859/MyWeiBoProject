@@ -60,6 +60,7 @@ class JKRepostCell: JKHomeCell {
 //        label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
 //        return label
 //    }()
+    //可以实现label内容点击网页链接和高亮
     private lazy var forwardLabel: UILabel = {
                     let label = KILabel()
                     label.textColor = UIColor.darkGrayColor()
@@ -71,31 +72,40 @@ class JKRepostCell: JKHomeCell {
                     label.urlLinkTapHandler =  {
                         (label, string, range)
                         in
-                        print(string)
+                        
+                       
+//                    //只能调用类方法，静态方法
+//                    JKRepostCell.openWebView(string)
+                        
                     }
                     
                     return label
     }()
     
+    //找view的所在控制器
+    func parentViewController() -> UIViewController?
+    {
+        for (let next = self.superview; next != nil; next?.superview) {
+            let ctr = next?.nextResponder()
+            if (ctr is UIViewController)
+            {
+                return ctr as? UIViewController
+            }
+        }
+        return nil
+    }
     
-//    lazy var contentLabel: KILabel =
-//        {
-//            
-//            let label = KILabel()
-//            label.textColor = UIColor.darkGrayColor()
-//            label.font = UIFont.systemFontOfSize(15)
-//            label.numberOfLines = 0
-//            label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
-//            
-//            // 监听URL
-//            label.urlLinkTapHandler =  {
-//                (label, string, range)
-//                in
-//                print(string)
-//            }
-//            
-//            return label
-//    }()
+    //接受KILabel的字符串，弹出控制器
+   func openWebView(string : String)
+   {
+    
+    let vc = parentViewController()
+    let webVC = JKWelcomVC()
+    
+    vc?.navigationController?.pushViewController(webVC, animated: true)
+
+    }
+    
     
     
     //整个cell是一个button，可以点击

@@ -25,6 +25,7 @@
 		0A2BCF4A1D4B29A60036CD5B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BCF491D4B29A60036CD5B /* libsqlite3.0.tbd */; };
 		0A2BCF4C1D4B2F4C0036CD5B /* JKSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BCF4B1D4B2F4C0036CD5B /* JKSQLiteManager.swift */; };
 		0A2BCF4E1D4B30300036CD5B /* JKStatusDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BCF4D1D4B30300036CD5B /* JKStatusDAO.swift */; };
+		0A2BCF501D4B6FE20036CD5B /* JKWebViewVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BCF4F1D4B6FE20036CD5B /* JKWebViewVCViewController.swift */; };
 		0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C511D0EB83900256D36 /* JKNullViewController.swift */; };
 		0A306C541D0EBF5A00256D36 /* JKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */; };
 		0A44FDE81D4A5999008204A6 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A44FDDB1D4A5999008204A6 /* FMDatabase.m */; };
@@ -133,6 +134,7 @@
 		0A2BCF491D4B29A60036CD5B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		0A2BCF4B1D4B2F4C0036CD5B /* JKSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKSQLiteManager.swift; sourceTree = "<group>"; };
 		0A2BCF4D1D4B30300036CD5B /* JKStatusDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKStatusDAO.swift; sourceTree = "<group>"; };
+		0A2BCF4F1D4B6FE20036CD5B /* JKWebViewVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKWebViewVCViewController.swift; sourceTree = "<group>"; };
 		0A306C511D0EB83900256D36 /* JKNullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKNullViewController.swift; sourceTree = "<group>"; };
 		0A306C531D0EBF5A00256D36 /* JKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKBaseViewController.swift; sourceTree = "<group>"; };
 		0A44FDDA1D4A5999008204A6 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				0A202B2E1D36390600AAB9CA /* JKStatus.swift */,
 				0A2BCF4D1D4B30300036CD5B /* JKStatusDAO.swift */,
 				0A202B301D3640CC00AAB9CA /* JKUser.swift */,
+				0A2BCF4F1D4B6FE20036CD5B /* JKWebViewVCViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				0A9A5A031D462DF6008410F6 /* UIColor+Category.swift in Sources */,
 				0ADC0B2C1D3BD419007F5306 /* JKRepostCell.swift in Sources */,
 				0A1F2BD61D0400DF002A03D0 /* JKDiscoverTableViewController.swift in Sources */,
+				0A2BCF501D4B6FE20036CD5B /* JKWebViewVCViewController.swift in Sources */,
 				0ABA21931D48BE6B00D49718 /* JKPhotoSelectorVC.swift in Sources */,
 				0A44FDE91D4A5999008204A6 /* FMDatabaseAdditions.m in Sources */,
 				0A306C521D0EB83900256D36 /* JKNullViewController.swift in Sources */,
